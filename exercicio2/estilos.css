@@ -32,3 +32,18 @@ nav li a:hover:not(.ativo) {
 .empurrar-direita {
   margin-left: auto;
 }
+
+.titulo-principal {
+  text-align: center; /* O comando para centralizar o texto */
+  margin-top: 10px;   /* Adiciona um espaço acima do título, para não colar no menu */
+  color: #333;       /* Deixa o texto com um cinza escuro, mais suave que o preto puro */
+}
+
+.imagem-principal {
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  max-width: 400px;
+}
