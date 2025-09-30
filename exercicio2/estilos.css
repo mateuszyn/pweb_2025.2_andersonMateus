@@ -84,3 +84,23 @@ nav li a:hover:not(.ativo) {
   color: #888;
   margin-top: 5px;
 }
+
+/* ===== ESTILOS DOS BOTÕES DE RÁDIO ===== */
+
+.opcoes-radio {
+  margin-top: 8px; /* Espaço entre o título "Gênero" e as opções */
+}
+
+/* Estilo para cada opção individual */
+.opcoes-radio label {
+  display: flex;         /* Alinha o círculo e o texto na mesma linha */
+  align-items: center;   /* Centraliza verticalmente o círculo com o texto */
+  margin-bottom: 10px;   /* Espaço entre as opções (Masculino, Feminino...) */
+  font-weight: normal;   /* Deixa o texto das opções com a fonte normal */
+  cursor: pointer;       /* Mostra a "mãozinha" ao passar o mouse */
+}
+
+/* Espaço entre o círculo do rádio e o texto */
+.opcoes-radio input[type="radio"] {
+  margin-right: 8px;
+}
