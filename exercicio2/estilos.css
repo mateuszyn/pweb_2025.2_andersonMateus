@@ -172,19 +172,14 @@ nav li a:hover:not(.ativo) {
 }
 
 .tabela-pessoas th, .tabela-pessoas td {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
   padding: 12px;
   text-align: left;
 }
 
 .tabela-pessoas th {
-  background-color: #f2f2f2;
+  background-color: #fff;
   font-weight: 600;
-}
-
-/* Efeito "zebra" para facilitar a leitura */
-.tabela-pessoas tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
 }
 
 /* Estilo para os links de ação */
@@ -196,5 +191,17 @@ nav li a:hover:not(.ativo) {
   color: #007BFF;
 }
 .acao-remover {
-  color: #DC3545;
+  color: #007BFF;
+}
+
+/* Container genérico para páginas de conteúdo */
+.container-conteudo {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza o container */
+}
+
+.titulo-recuado {
+  padding: 10px;
+  max-width: 1200px;
 }
