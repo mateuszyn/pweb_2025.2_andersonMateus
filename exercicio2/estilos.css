@@ -104,3 +104,55 @@ nav li a:hover:not(.ativo) {
 .opcoes-radio input[type="radio"] {
   margin-right: 8px;
 }
+
+/* ===== ESTILOS DOS BOTÕES DO FORMULÁRIO ===== */
+
+.grupo-botoes {
+  display: flex;         /* Deixa os botões lado a lado */
+  gap: 15px;             /* Espaço entre os botões */
+  margin-top: 20px;      /* Espaço acima dos botões */
+  
+  /* Pede para este grupo ocupar a largura total do formulário */
+  /* Isso é necessário porque o form é flex */
+  flex-basis: 100%; 
+}
+
+/* Estilo base para AMBOS os botões */
+.btn {
+  flex: 1;               /* Faz os dois botões ocuparem o mesmo espaço (largura igual) */
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s; /* Efeito suave na mudança de cor */
+}
+
+/* Cor específica do botão Adicionar */
+.btn-adicionar {
+  background-color: #04A4D9; /* Azul */
+}
+
+/* Cor específica do botão Limpar */
+.btn-limpar {
+  background-color: #6C757D; /* Cinza */
+}
+
+/* Efeito de escurecer ao passar o mouse */
+.btn-adicionar:hover {
+  background-color: #038ab3;
+}
+
+.btn-limpar:hover {
+  background-color: #5a6268;
+}
+
+/* Estilo do aviso de campo obrigatório */
+.campo-obrigatorio-aviso {
+  flex-basis: 100%; /* Ocupa a linha toda */
+  margin-top: 15px;
+  font-size: 12px;
+  color: #666;
+}
