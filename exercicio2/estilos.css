@@ -47,3 +47,40 @@ nav li a:hover:not(.ativo) {
   width: 50%;
   max-width: 400px;
 }
+
+/* ===== ESTILOS DO FORMULÁRIO ===== */
+
+.meu-formulario {
+  display: flex;          /* A MÁGICA: alinha os itens filhos (os grupos) lado a lado */
+  gap: 20px;              /* Cria um espaço de 20px ENTRE cada grupo */
+  padding: 40px;          /* Adiciona um espaçamento interno geral no formulário */
+  flex-wrap: wrap;        /* Permite que os itens quebrem a linha em telas pequenas */
+}
+
+.grupo-formulario {
+  flex: 1;                /* Faz com que cada grupo tente ocupar o mesmo espaço */
+  min-width: 200px;       /* Garante uma largura mínima para cada campo */
+  display: flex;
+  flex-direction: column; /* Deixa a label e o input um em cima do outro DENTRO do grupo */
+}
+
+.grupo-formulario label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.grupo-formulario input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Bordas arredondadas */
+  font-size: 16px;
+}
+
+/* Estilo do texto de ajuda abaixo do e-mail */
+.texto-ajuda {
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
