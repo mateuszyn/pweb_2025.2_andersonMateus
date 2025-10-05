@@ -140,14 +140,6 @@ nav li a:hover:not(.ativo) {
   background-color: #6C757D; /* Cinza */
 }
 
-/* Efeito de escurecer ao passar o mouse */
-.btn-adicionar:hover {
-  background-color: #038ab3;
-}
-
-.btn-limpar:hover {
-  background-color: #5a6268;
-}
 
 /* Estilo do aviso de campo obrigatório */
 .campo-obrigatorio-aviso {
