@@ -153,8 +153,6 @@ nav li a:hover:not(.ativo) {
 
 .container-lista {
   padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto; /* Centraliza o container na página */
 }
 
 .tabela-pessoas {
@@ -193,7 +191,7 @@ nav li a:hover:not(.ativo) {
   margin: 0 auto; /* Centraliza o container */
 }
 
-.titulo-recuado {
+.texto-recuado {
   padding: 10px;
   max-width: 1200px;
 }
