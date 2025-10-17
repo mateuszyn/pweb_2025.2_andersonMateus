@@ -1,0 +1,197 @@
+/* estilos.css */
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  display: flex;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover:not(.ativo) {
+  background-color: #333333;
+}
+
+.ativo {
+  background-color: #e55039;
+}
+
+.empurrar-direita {
+  margin-left: auto;
+}
+
+.titulo-principal {
+  text-align: center; /* O comando para centralizar o texto */
+  margin-top: 10px;   /* Adiciona um espaço acima do título, para não colar no menu */
+  color: #333;       /* Deixa o texto com um cinza escuro, mais suave que o preto puro */
+}
+
+.imagem-principal {
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  max-width: 400px;
+}
+
+/* ===== ESTILOS DO FORMULÁRIO ===== */
+
+.meu-formulario {
+  display: flex;          /* A MÁGICA: alinha os itens filhos (os grupos) lado a lado */
+  gap: 20px;              /* Cria um espaço de 20px ENTRE cada grupo */
+  padding: 40px;          /* Adiciona um espaçamento interno geral no formulário */
+  flex-wrap: wrap;        /* Permite que os itens quebrem a linha em telas pequenas */
+}
+
+.grupo-formulario {
+  flex: 1;                /* Faz com que cada grupo tente ocupar o mesmo espaço */
+  min-width: 200px;       /* Garante uma largura mínima para cada campo */
+  display: flex;
+  flex-direction: column; /* Deixa a label e o input um em cima do outro DENTRO do grupo */
+}
+
+.grupo-formulario label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.grupo-formulario input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Bordas arredondadas */
+  font-size: 16px;
+}
+
+/* Estilo do texto de ajuda abaixo do e-mail */
+.texto-ajuda {
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
+
+/* ===== ESTILOS DOS BOTÕES DE RÁDIO ===== */
+
+.opcoes-radio {
+  margin-top: 8px; /* Espaço entre o título "Gênero" e as opções */
+}
+
+/* Estilo para cada opção individual */
+.opcoes-radio label {
+  display: flex;         /* Alinha o círculo e o texto na mesma linha */
+  align-items: center;   /* Centraliza verticalmente o círculo com o texto */
+  margin-bottom: 10px;   /* Espaço entre as opções (Masculino, Feminino...) */
+  font-weight: normal;   /* Deixa o texto das opções com a fonte normal */
+  cursor: pointer;       /* Mostra a "mãozinha" ao passar o mouse */
+}
+
+/* Espaço entre o círculo do rádio e o texto */
+.opcoes-radio input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* ===== ESTILOS DOS BOTÕES DO FORMULÁRIO ===== */
+
+.grupo-botoes {
+  display: flex;         /* Deixa os botões lado a lado */
+  gap: 15px;             /* Espaço entre os botões */
+  margin-top: 20px;      /* Espaço acima dos botões */
+  
+  /* Pede para este grupo ocupar a largura total do formulário */
+  /* Isso é necessário porque o form é flex */
+  flex-basis: 100%; 
+}
+
+/* Estilo base para AMBOS os botões */
+.btn {
+  flex: 1;               /* Faz os dois botões ocuparem o mesmo espaço (largura igual) */
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s; /* Efeito suave na mudança de cor */
+}
+
+/* Cor específica do botão Adicionar */
+.btn-adicionar {
+  background-color: #04A4D9; /* Azul */
+}
+
+/* Cor específica do botão Limpar */
+.btn-limpar {
+  background-color: #6C757D; /* Cinza */
+}
+
+
+/* Estilo do aviso de campo obrigatório */
+.campo-obrigatorio-aviso {
+  flex-basis: 100%; /* Ocupa a linha toda */
+  margin-top: 15px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* ===== PÁGINA DE LISTA DE PESSOAS ===== */
+
+.container-lista {
+  padding: 40px;
+}
+
+.tabela-pessoas {
+  width: 100%;
+  border-collapse: collapse; /* Tira o espaçamento entre as bordas das células */
+  margin-top: 20px;
+}
+
+.tabela-pessoas th, .tabela-pessoas td {
+  border-bottom: 1px solid #dddddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.tabela-pessoas th {
+  background-color: #fff;
+  font-weight: 600;
+}
+
+/* Estilo para os links de ação */
+.acao-editar, .acao-remover {
+  text-decoration: none;
+  font-weight: bold;
+}
+.acao-editar {
+  color: #007BFF;
+}
+.acao-remover {
+  color: #007BFF;
+}
+
+/* Container genérico para páginas de conteúdo */
+.container-conteudo {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza o container */
+}
+
+.texto-recuado {
+  padding: 10px;
+  max-width: 1200px;
+}
