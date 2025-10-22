@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Beba Notícias</title>
 
-    <link rel = "stylesheet" href = "css/estilos.css"> 
+    <link rel = "stylesheet" th:href = "@{css/estilos.css}"> 
 
-    <link rel="icon" href="assets/favicon.ico">
+    <link rel="icon" th:href= "@{assets/favicon.ico}">
     
 </head>
 <body>
     <nav> 
         <ul> 
-            <li> <a class = "ativo" href = "/index"> Início </a></li>
-            <li> <a href = "/adicionarPessoas"> Adicionar Pessoas </a></li>
-            <li> <a href = "/listarPessoas"> Listar Pessoas </a></li>
+            <li> <a class = "ativo" th:href = "@{/index}"> Início </a></li>
+            <li> <a th:href = "@{/adicionarPessoas}"> Adicionar Pessoas </a></li>
+            <li> <a th:href = "@{/listarPessoas}"> Listar Pessoas </a></li>
             <li class = "empurrar-direita"> 
-                <a href = "/contato"> Contato </a></li>
-            <li> <a href = "/sobre"> Sobre o Site </a></li>
-            <li> <a href = "/noticias"> Notícias </a></li>
+                <a th:href = "@{/contato}"> Contato </a></li>
+            <li> <a th:href = "@{/sobre}"> Sobre o Site </a></li>
+            <li> <a th:href = "@{/noticias}"> Notícias </a></li>
         </ul>
     </nav>
     <h1 class = "titulo-principal"> Hidrate-se!</h1>
-    <img class = "imagem-principal" src = "/assets/beba_agua.jpeg" title="Bebam água!">
+    <img class = "imagem-principal" th:src = "@{/assets/beba_agua.jpeg}" title="Bebam água!">
 </body>
 </html>
