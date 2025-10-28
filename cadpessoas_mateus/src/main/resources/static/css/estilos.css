@@ -58,10 +58,16 @@ nav li a:hover:not(.ativo) {
 }
 
 .grupo-formulario {
-  flex: 1;                /* Faz com que cada grupo tente ocupar o mesmo espaço */
-  min-width: 200px;       /* Garante uma largura mínima para cada campo */
+  flex: 1;                
+  min-width: 200px;       
   display: flex;
-  flex-direction: column; /* Deixa a label e o input um em cima do outro DENTRO do grupo */
+  flex-direction: column; 
+  max-width: 350px; 
+  margin-left: auto;   /* <-- ADICIONE ESTA LINHA */
+  margin-right: auto;  /* <-- ADICIONE ESTA LINHA */
+  /* Você pode combinar as 4 margens se quiser: */
+  /* margin: 0 auto 20px auto; (Exemplo: 0 topo, auto laterais, 20px baixo) */
+  margin-bottom: 20px; /* Adiciona espaço abaixo de cada grupo */
 }
 
 .grupo-formulario label {
@@ -194,4 +200,11 @@ nav li a:hover:not(.ativo) {
 .texto-recuado {
   padding: 10px;
   max-width: 1200px;
+}
+
+/* Regra específica para grupos que devem ocupar a linha inteira */
+.grupo-linha-inteira {
+  flex-basis: 100%; /* Força o item a ocupar a largura total, quebrando a linha */
+  /* Opcional: Remover a largura máxima se necessário, mas flex-basis deve bastar */
+  /* max-width: none; */ 
 }
