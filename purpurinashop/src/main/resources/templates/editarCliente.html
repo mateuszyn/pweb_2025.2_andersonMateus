@@ -2,18 +2,19 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Adicionar Cliente</title>
+    <title>Editar Cliente</title>
     <link rel="stylesheet" th:href="@{/estilos.css}">
 </head>
 <body>
 
-    <h1>Adicionar Novo Cliente</h1>
+    <h1>Editar Cliente</h1>
 
     <form class="meu-formulario" th:action="@{/adicionarCliente}" method="POST" th:object="${cliente}">
 
         <div class="grupo-formulario">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" th:field="*{nome}" required>
+            <input type="hidden" th:field="*{id}" />
         </div>
 
         <div class="grupo-formulario">
@@ -32,14 +33,14 @@
         </div>
 
     <div class="grupo-formulario">
-    <label>Gênero:</label>
-    <div class="opcoes-radio">
-        <label><input type="radio" value="Feminino" th:field="*{genero}"> Feminino</label>
-        <label><input type="radio" value="Masculino" th:field="*{genero}"> Masculino</label>
-        <label><input type="radio" value="Não Informado" th:field="*{genero}"> Não Informado</label>
-        <label><input type="radio" value="Indefinido" th:field="*{genero}"> Indefinido</label>
+        <label>Gênero:</label>
+        <div class="opcoes-radio">
+            <label><input type="radio" value="Feminino" th:field="*{genero}"> Feminino</label>
+            <label><input type="radio" value="Masculino" th:field="*{genero}"> Masculino</label>
+            <label><input type="radio" value="Não Informado" th:field="*{genero}"> Não Informado</label>
+            <label><input type="radio" value="Indefinido" th:field="*{genero}"> Indefinido</label>
+        </div>
     </div>
-</div>
 
     <div class="grupo-formulario">
         <label for="telefone">Telefone (com DDD):</label>
@@ -67,7 +68,7 @@
     </div>
 
         <div class="grupo-botoes">
-            <button type="submit" class="btn btn-adicionar">Adicionar</button>
+            <button type="submit" class="btn btn-adicionar">Salvar Alterações</button>
         </div>
     </form>
 

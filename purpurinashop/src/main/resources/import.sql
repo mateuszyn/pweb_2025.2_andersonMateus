@@ -1,0 +1,3 @@
+INSERT INTO cliente (nome, cpf, email, data_nascimento, genero, rua, bairro, numero, cidade, telefone) VALUES ('Maria da Penha', '111.222.333-44', 'maria@email.com', '1950-05-15', 'Feminino', 'Rua das Flores', 'Centro', '123', 'Angicos', '84912345678');
+
+INSERT INTO cliente (nome, cpf, email, data_nascimento, genero, rua, bairro, numero, cidade, telefone) VALUES ('João de Deus', '222.333.444-55', 'joao@email.com', '1980-11-20', 'Masculino', 'Rua Principal', 'Comércio', 'S/N', 'Angicos', '84987654321');

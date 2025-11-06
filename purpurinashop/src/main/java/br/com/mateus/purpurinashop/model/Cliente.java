@@ -22,4 +22,11 @@ public class Cliente {
     private String cpf;
     private String email;
     private LocalDate dataNascimento;
+
+    private String genero;
+    private String rua;
+    private String bairro;
+    private String numero;
+    private String cidade;
+    private String telefone;
 }

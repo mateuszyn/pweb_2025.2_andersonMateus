@@ -15,6 +15,9 @@
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>Email</th>
+                <th>Gênero</th> 
+                <th>Telefone</th> 
+                <th>Endereço</th> </tr>
             </tr>
         </thead>
         <tbody>
@@ -23,10 +26,22 @@
                 <td th:text="${cli.nome}">Nome do Cliente</td>
                 <td th:text="${cli.cpf}">123.456.789-00</td>
                 <td th:text="${cli.email}">email@cliente.com</td>
+
+                <td th:text="${cli.genero}">Gênero</td>
+                <td th:text="${cli.telefone}">Telefone</td>
+
+                <td th:text="${cli.rua + ', ' + cli.numero + ' - ' + cli.bairro + ', ' + cli.cidade}">
+                    Endereço Completo
+                </td>
+
+
+                <td><a th:href="@{'/excluirCliente/' + ${cli.id}}">Remover</a></td>
+                <td><a th:href="@{'/editarCliente/' + ${cli.id}}">Editar</a></td>
             </tr>
         </tbody>
     </table>
 
     <a th:href="@{/adicionarCliente}">Adicionar Novo Cliente</a>
+    
 </body>
 </html>

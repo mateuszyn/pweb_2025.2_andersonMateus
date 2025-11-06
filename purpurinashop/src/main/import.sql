@@ -1,2 +1,0 @@
-INSERT INTO cliente (nome, cpf, email, data_nascimento) VALUES ('Maria da Penha', '111.222.333-44', 'maria@email.com', '1950-05-15');
-INSERT INTO cliente (nome, cpf, email, data_nascimento) VALUES ('João de Deus', '222.333.444-55', 'joao@email.com', '1980-11-20');

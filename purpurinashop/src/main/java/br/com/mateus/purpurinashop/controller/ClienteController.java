@@ -1,10 +1,12 @@
 package br.com.mateus.purpurinashop.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,7 +20,7 @@ public class ClienteController {
     private ClienteRepository clienteRepo;
 
    
-    @GetMapping("/clientes")
+    @GetMapping({"/", "", "/clientes"})
     public ModelAndView listarClientes() {
        
         ModelAndView modelAndView = new ModelAndView("listarClientes"); 
@@ -40,12 +42,35 @@ public class ClienteController {
         return modelAndView;
     }
 
-    @SuppressWarnings("null")
     @PostMapping("/adicionarCliente")
     public String adicionarCliente(Cliente cliente) {
 
         clienteRepo.save(cliente);
 
         return "redirect:/clientes";
+    }
+
+    @GetMapping("/excluirCliente/{id}")
+    public String excluirCliente(@PathVariable("id") Long id) {
+
+        clienteRepo.deleteById(id);
+
+        return "redirect:/clientes";
+    }
+
+    @GetMapping("/editarCliente/{id}")
+    public ModelAndView formularioEditarCliente(@PathVariable("id") Long id) {
+        Optional<Cliente> clienteOptional = clienteRepo.findById(id);
+
+        if (clienteOptional.isPresent()) {
+            Cliente cliente = clienteOptional.get(); 
+
+            ModelAndView modelAndView = new ModelAndView("editarCliente"); 
+            modelAndView.addObject("cliente", cliente); 
+
+            return modelAndView;
+        } else {
+            return new ModelAndView("redirect:/clientes"); 
+        }
     }
 }
