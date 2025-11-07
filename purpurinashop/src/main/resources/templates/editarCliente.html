@@ -9,7 +9,7 @@
 
     <h1>Editar Cliente</h1>
 
-    <form class="meu-formulario" th:action="@{/adicionarCliente}" method="POST" th:object="${cliente}">
+    <form class="meu-formulario" th:action="@{/editarCliente}" method="POST" th:object="${cliente}">
 
         <div class="grupo-formulario">
             <label for="nome">Nome:</label>
@@ -73,7 +73,7 @@
     </form>
 
     <br>
-    <a th:href="@{/clientes}">Voltar para a Lista</a>
+    <a th:href="@{/listarClientes}">Voltar para a Lista</a>
 
 </body>
 </html>

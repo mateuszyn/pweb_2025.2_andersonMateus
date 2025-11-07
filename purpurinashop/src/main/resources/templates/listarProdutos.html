@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" th:href="@{/estilos.css}">
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+    <table border="1" class="tabela-pessoas">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Tipo Metal</th>
+                <th>Gemas</th>
+                <th>Peso(g)</th>
+                <th>Quilates</th>
+                <th>Dimensões</th>
+                <th>Preço Compra</th>
+                <th>Preço Venda</th>
+                <th>Data Cadastro</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr th:each="prod : ${produtos}">
+            <td th:text="${prod.id}">1</td>
+            <td th:text="${prod.marca}">Marca</td>
+            <td th:text="${prod.tipoDeMetal}">Ouro</td>
+
+            <td th:text="${prod.gemas}">Gemas</td>
+            <td th:text="${prod.pesoEmGramas}">Peso</td>
+            <td th:text="${prod.quilates}">Quilates</td>
+            <td th:text="${prod.dimensoes}">Dimensões</td>
+            <td th:text="${#numbers.formatCurrency(prod.precoDeCompra)}">R$ Compra</td>
+            <td th:text="${#numbers.formatCurrency(prod.precoDeVenda)}">R$ Venda</td>
+            <td th:text="${#temporals.format(prod.dataDeCadastro, 'dd/MM/yyyy')}">Data</td>
+
+            <td>
+                <a th:href="@{'/editarProduto/' + ${prod.id}}">Editar</a>
+                <a th:href="@{'/excluirProduto/' + ${prod.id}}">Excluir</a>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+
+    <br>
+    <a th:href="@{/adicionarProduto}">Adicionar Novo Produto</a>
+    <a th:href="@{/}"> Voltar para o Início</a>
+    </b>
+
+</body>
+</html>

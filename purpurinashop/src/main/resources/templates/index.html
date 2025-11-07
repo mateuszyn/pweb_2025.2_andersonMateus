@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PurpurinaShop - Início</title>
+    <link rel="stylesheet" th:href="@{/estilos.css}">
+</head>
+<body>
+
+    <h1>Bem-vindo à PurpurinaShop!</h1>
+    <hr>
+
+    <h2>Últimos Clientes Cadastrados</h2>
+    <table border="1" class="tabela-pessoas">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cli : ${clientes}">
+                <td th:text="${cli.id}"></td>
+                <td th:text="${cli.nome}"></td>
+                <td th:text="${cli.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/listarClientes}">Ver lista completa de clientes...</a>
+
+    <br><br>
+    <hr>
+
+    <h2>Últimos Produtos Cadastrados</h2>
+    <table border="1" class="tabela-pessoas">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Preço Venda</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="prod : ${produtos}">
+                <td th:text="${prod.id}"></td>
+                <td th:text="${prod.marca}"></td>
+                <td th:text="${#numbers.formatCurrency(prod.precoDeVenda)}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/listarProdutos}">Ver lista completa de produtos...</a>
+
+</body>
+</html>

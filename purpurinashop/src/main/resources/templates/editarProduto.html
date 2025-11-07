@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Produto</title>
+    <link rel="stylesheet" th:href="@{/estilos.css}">
+</head>
+<body>
+    <h1>Editar Produto</h1>
+    <form class="meu-formulario" th:action="@{/editarProduto}" method="POST" th:object="${produto}">
+
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="grupo-formulario">
+            <label>Marca:</label>
+            <input type="text" th:field="*{marca}" required>
+        </div>
+        <div class="grupo-formulario">
+            <label>Tipo de Metal:</label>
+            <input type="text" th:field="*{tipoDeMetal}" placeholder="Ouro, Prata, Ródio...">
+        </div>
+        <div class="grupo-formulario">
+            <label>Gemas:</label>
+            <input type="text" th:field="*{gemas}" placeholder="Diamante, Rubi (separar por vírgula)">
+        </div>
+        <div class="grupo-formulario">
+            <label>Peso (gramas):</label>
+            <input type="number" step="0.01" th:field="*{pesoEmGramas}">
+        </div>
+        <div class="grupo-formulario">
+            <label>Quilates:</label>
+            <input type="text" th:field="*{quilates}">
+        </div>
+        <div class="grupo-formulario">
+            <label>Dimensões (AxLxP):</label>
+            <input type="text" th:field="*{dimensoes}" placeholder="10x5x2mm">
+        </div>
+        <div class="grupo-formulario">
+            <label>Preço de Compra:</label>
+            <input type="number" step="0.01" th:field="*{precoDeCompra}">
+        </div>
+        <div class="grupo-formulario">
+            <label>Preço de Venda:</label>
+            <input type="number" step="0.01" th:field="*{precoDeVenda}" required>
+        </div>
+        <div class="grupo-botoes">
+            <button type="submit" class="btn btn-adicionar">Salvar Alterações</button>
+        </div>
+    </form>
+    <br>
+    <a th:href="@{/listarProdutos}">Voltar para a Lista</a>
+</body>
+</html>

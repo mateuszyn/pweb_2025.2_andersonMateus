@@ -20,7 +20,7 @@ public class ClienteController {
     private ClienteRepository clienteRepo;
 
    
-    @GetMapping({"/", "", "/clientes"})
+    @GetMapping("/listarClientes")
     public ModelAndView listarClientes() {
        
         ModelAndView modelAndView = new ModelAndView("listarClientes"); 
@@ -47,7 +47,7 @@ public class ClienteController {
 
         clienteRepo.save(cliente);
 
-        return "redirect:/clientes";
+        return "redirect:/listarClientes";
     }
 
     @GetMapping("/excluirCliente/{id}")
@@ -55,7 +55,7 @@ public class ClienteController {
 
         clienteRepo.deleteById(id);
 
-        return "redirect:/clientes";
+        return "redirect:/listarClientes";
     }
 
     @GetMapping("/editarCliente/{id}")
@@ -70,7 +70,17 @@ public class ClienteController {
 
             return modelAndView;
         } else {
-            return new ModelAndView("redirect:/clientes"); 
+            return new ModelAndView("redirect:/listarClientes"); 
         }
+    }
+    @PostMapping("/editarCliente")
+    public String editarCliente(Cliente cliente) {
+
+        // Como o 'cliente' que veio do formulário (com o campo ID oculto)
+        // já tem um ID, o método save() automaticamente faz um UPDATE.
+        clienteRepo.save(cliente);
+
+        // Redireciona para a lista de clientes após salvar
+        return "redirect:/listarClientes";
     }
 }
