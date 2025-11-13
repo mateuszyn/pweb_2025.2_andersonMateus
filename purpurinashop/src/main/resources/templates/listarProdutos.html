@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Lista de Produtos</title>
     <link rel="stylesheet" th:href="@{/estilos.css}">
+    <link rel="icon" th:href="@{/favicon.ico}">
 </head>
 <body>
     <h1>Lista de Produtos</h1>
-    <table border="1" class="tabela-pessoas">
+    <table class="tabela">
         <thead>
             <tr>
                 <th>ID</th>
@@ -20,7 +21,8 @@
                 <th>Preço Compra</th>
                 <th>Preço Venda</th>
                 <th>Data Cadastro</th>
-                <th>Ações</th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
         </thead>
     <tbody>
@@ -38,17 +40,15 @@
             <td th:text="${#temporals.format(prod.dataDeCadastro, 'dd/MM/yyyy')}">Data</td>
 
             <td>
-                <a th:href="@{'/editarProduto/' + ${prod.id}}">Editar</a>
-                <a th:href="@{'/excluirProduto/' + ${prod.id}}">Excluir</a>
+                <a class="link-acao" th:href="@{'/editarProduto/' + ${prod.id}}">Editar</a>
             </td>
+            <td> <a class="link-acao" th:href="@{'/excluirProduto/' + ${prod.id}}">Excluir</a> </td>
         </tr>
     </tbody>
     </table>
 
-    <br>
-    <a th:href="@{/adicionarProduto}">Adicionar Novo Produto</a>
-    <a th:href="@{/}"> Voltar para o Início</a>
-    </b>
+    <a class="link-acao" th:href="@{/adicionarProduto}">Adicionar Novo Produto</a>
+    <a class="link-acao" th:href="@{/}"> Voltar para o Início</a>
 
 </body>
 </html>

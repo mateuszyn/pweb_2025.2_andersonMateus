@@ -5,3 +5,7 @@ INSERT INTO cliente (nome, cpf, email, data_nascimento, genero, rua, bairro, num
 INSERT INTO produto (marca, tipo_de_metal, gemas, peso_em_gramas, quilates, dimensoes, preco_de_compra, preco_de_venda) VALUES ('PurpurinaJoias', 'Ouro', 'Diamante', 5.5, '18k', '1x1x0.5cm', 1200.00, 2500.00);
 
 INSERT INTO produto (marca, tipo_de_metal, gemas, peso_em_gramas, quilates, dimensoes, preco_de_compra, preco_de_venda) VALUES ('Realeza', 'Prata', 'Esmeralda, Rubi', 10.2, 'N/A', '3x2x1cm', 400.00, 850.00);
+
+INSERT INTO dependente (nome, data_nascimento, genero, cliente_id) VALUES ('Zezinho da Silva', '2010-05-10', 'Masculino', 1);
+
+INSERT INTO dependente (nome, data_nascimento, genero, cliente_id) VALUES ('Mariazinha de Deus', '2012-11-30', 'Feminino', 1);

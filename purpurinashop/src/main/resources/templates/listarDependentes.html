@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Dependentes</title>
+    <link rel="stylesheet" th:href="@{/estilos.css}">
+    <link rel="icon" th:href="@{/favicon.ico}">
+</head>
+<body>
+
+    <h1>Lista de Dependentes</h1>
+
+    <table class="tabela">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome do Dependente</th>
+                <th>Data Nasc.</th>
+                <th>Gênero</th>
+                <th>Cliente (Responsável)</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="dep : ${dependentes}">
+                <td th:text="${dep.id}">1</td>
+                <td th:text="${dep.nome}">Nome Dependente</td>
+                <td th:text="${dep.dataNascimento}">01/01/2020</td>
+                <td th:text="${dep.genero}">Gênero</td>
+                <td th:text="${dep.cliente.nome}">Nome do Cliente</td>
+                
+                <td>
+                    <a class="link-acao" th:href="@{'/editarDependente/' + ${dep.id}}">Editar</a>
+                </td>
+                <td>
+                    <a class="link-acao" th:href="@{'/excluirDependente/' + ${dep.id}}">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="link-acao" th:href="@{/adicionarDependente}">Adicionar Novo Dependente</a>
+    <a class="link-acao" th:href="@{/listarClientes}">Voltar à Lista de Clientes</a>
+
+</body>
+</html>

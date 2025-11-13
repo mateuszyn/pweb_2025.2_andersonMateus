@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <title>Lista de Clientes</title>
     <link rel="stylesheet" th:href = "@{/estilos.css}">
+    <link rel="icon" th:href="@{/favicon.ico}">
 </head>
 <body>
     <h1>Lista de Clientes</h1>
 
-    <table border="1">
+    <table class="tabela">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>Email</th>
+                <th> Data de Nascimento</th>
                 <th>Gênero</th> 
                 <th>Telefone</th> 
-                <th>Endereço</th> </tr>
+                <th>Endereço</th>
+                <th> Remover </th>
+                <th> Editar </th>
+             </tr>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +31,7 @@
                 <td th:text="${cli.nome}">Nome do Cliente</td>
                 <td th:text="${cli.cpf}">123.456.789-00</td>
                 <td th:text="${cli.email}">email@cliente.com</td>
-
+                <td th:text="${cli.dataNascimento}">20/02/2004</td>
                 <td th:text="${cli.genero}">Gênero</td>
                 <td th:text="${cli.telefone}">Telefone</td>
 
@@ -35,16 +40,16 @@
                 </td>
 
 
-                <td><a th:href="@{'/excluirCliente/' + ${cli.id}}">Remover</a></td>
-                <td><a th:href="@{'/editarCliente/' + ${cli.id}}">Editar</a></td>
+                <td><a class="link-acao" th:href="@{'/excluirCliente/' + ${cli.id}}">Remover</a></td>
+                <td><a class="link-acao" th:href="@{'/editarCliente/' + ${cli.id}}">Editar</a></td>
+                
             </tr>
         </tbody>
     </table>
 
-    <br>
-    <a th:href="@{/adicionarCliente}">Adicionar Novo Cliente</a>
-    <a th:href="@{/}"> Voltar para o Início</a>
-    </br>
+    <a class="link-acao" th:href="@{/adicionarCliente}">Adicionar Novo Cliente</a>
+    <a class="link-acao" th:href="@{/}"> Voltar para o Início</a>
+    <a class="link-acao" th:href = "@{/listarDependentes}"> Ver Dependentes </a>
  
 </body>
 </html>

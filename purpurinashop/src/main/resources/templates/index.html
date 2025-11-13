@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>PurpurinaShop - Início</title>
     <link rel="stylesheet" th:href="@{/estilos.css}">
+    <link rel="icon" th:href="@{/favicon.ico}">
+
 </head>
 <body>
 
@@ -11,7 +13,7 @@
     <hr>
 
     <h2>Últimos Clientes Cadastrados</h2>
-    <table border="1" class="tabela-pessoas">
+    <table class="tabela">
         <thead>
             <tr>
                 <th>ID</th>
@@ -27,13 +29,10 @@
             </tr>
         </tbody>
     </table>
-    <a th:href="@{/listarClientes}">Ver lista completa de clientes...</a>
-
-    <br><br>
-    <hr>
+    <a class="link-acao" th:href="@{/listarClientes}">Ver lista completa de clientes...</a>
 
     <h2>Últimos Produtos Cadastrados</h2>
-    <table border="1" class="tabela-pessoas">
+    <table class="tabela">
         <thead>
             <tr>
                 <th>ID</th>
@@ -49,7 +48,7 @@
             </tr>
         </tbody>
     </table>
-    <a th:href="@{/listarProdutos}">Ver lista completa de produtos...</a>
+    <a class="link-acao" th:href="@{/listarProdutos}">Ver lista completa de produtos...</a>
 
 </body>
 </html>

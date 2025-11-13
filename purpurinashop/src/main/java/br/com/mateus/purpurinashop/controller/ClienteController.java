@@ -76,11 +76,8 @@ public class ClienteController {
     @PostMapping("/editarCliente")
     public String editarCliente(Cliente cliente) {
 
-        // Como o 'cliente' que veio do formulário (com o campo ID oculto)
-        // já tem um ID, o método save() automaticamente faz um UPDATE.
         clienteRepo.save(cliente);
 
-        // Redireciona para a lista de clientes após salvar
         return "redirect:/listarClientes";
     }
 }
