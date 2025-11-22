@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Lista de Produtos</h1>
-    <form action="/produtos" method="GET" class="meu-formulario">
+    <form action="/listarProdutos" method="GET" class="meu-formulario">
         <input type="text" 
                name="busca" 
                placeholder="Buscar por Marca, Metal, Gema, ou Quilates..."
@@ -16,7 +16,7 @@
                class="input-busca">
 
         <button type="submit" class="btn btn-adicionar">Buscar</button>
-        <a th-href="@{/produtos}" class="link-acao">Limpar Busca</a>
+        <a th:href="@{/listarProdutos}" class="link-acao">Limpar Busca</a>
     </form>
     <table class="tabela">
         </table>

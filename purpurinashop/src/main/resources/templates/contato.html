@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contato</title>
+    <link rel="stylesheet" th:href="@{/estilos.css}">
+</head>
+<body>
+    
+    <div class="container-conteudo"> 
+        <h1>Fale Conosco</h1>
+        
+        <h2>Atendimento Rápido (WhatsApp)</h2>
+        <p>Clique no botão abaixo para iniciar uma conversa com o nosso suporte técnico ou para fazer um pedido.</p>
+
+        <a th:href="@{'https://wa.me/84998643688?text=Olá, gostaria de saber mais sobre as jóias PurpurinaShop.'}" 
+           target="_blank" 
+           class="link-acao">
+           🟢 Iniciar Conversa no WhatsApp
+        </a>
+        
+        <br><br>
+        
+        <h2>Outras Informações de Contato</h2>
+        <p>Telefone: (84) 99864-3688</p>
+        Email: <a  class = "link-acao" href = "mailto:a.mateussouza04@gmail.com" targer = "_blank"> a.mateussouza04@gmail.com</a>
+
+        <p><a class="link-acao" th:href="@{/}">Voltar ao Início</a></p>
+    </div>
+
+</body>
+</html>

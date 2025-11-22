@@ -41,4 +41,9 @@ public class HomeController {
 
         return modelAndView;
     }
+
+    @GetMapping("/contato")
+        public String contato() {
+        return "contato"; 
+    }
 }
