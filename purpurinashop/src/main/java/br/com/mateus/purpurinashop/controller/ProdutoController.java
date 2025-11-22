@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.mateus.purpurinashop.model.Produto;
@@ -20,10 +21,21 @@ public class ProdutoController {
     private ProdutoRepository produtoRepo;
     
 
-    @GetMapping("/listarProdutos")
-    public ModelAndView listarProdutos() {
+    @GetMapping ("/listarProdutos")
+    public ModelAndView listarProdutos(@RequestParam(value = "busca", required = false) String busca) {
         ModelAndView modelAndView = new ModelAndView("listarProdutos");
-        List<Produto> produtos = produtoRepo.findAll();
+        List<Produto> produtos;
+
+        if (busca == null || busca.trim().isEmpty()) {
+            produtos = produtoRepo.findAllByOrderByMarcaAsc();
+        } else {
+            String keyword = busca.trim();
+            produtos = produtoRepo.findByMarcaContainingIgnoreCaseOrTipoDeMetalContainingIgnoreCaseOrGemasContainingIgnoreCaseOrQuilatesContainingIgnoreCase(
+                keyword, keyword, keyword, keyword
+            );
+            modelAndView.addObject("busca", busca);
+        }
+
         modelAndView.addObject("produtos", produtos);
         return modelAndView;
     }

@@ -1,6 +1,6 @@
 package br.com.mateus.purpurinashop.model;
 
-import java.math.BigDecimal; // Import para preços
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import org.hibernate.annotations.CreationTimestamp; 

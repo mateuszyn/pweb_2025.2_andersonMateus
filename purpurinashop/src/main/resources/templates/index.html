@@ -50,5 +50,27 @@
     </table>
     <a class="link-acao" th:href="@{/listarProdutos}">Ver lista completa de produtos...</a>
 
+    <br><br>
+    <h2>Últimos Pedidos Recebidos</h2>
+    <table class="tabela">
+        <thead>
+            <tr>
+                <th>ID Pedido</th>
+                <th>Cliente</th>
+                <th>Data Pedido</th>
+                <th>Total Geral</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="ped : ${pedidos}">
+                <td th:text="${ped.id}"></td>
+                <td th:text="${ped.cliente.nome}"></td>
+                <td th:text="${#temporals.format(ped.dataPedido, 'dd/MM/yyyy HH:mm')}"></td>
+                <td th:text="${#numbers.formatCurrency(ped.getTotalGeral())}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="link-acao" th:href="@{/listarPedidos}">Ver lista completa de pedidos...</a>
+
 </body>
 </html>

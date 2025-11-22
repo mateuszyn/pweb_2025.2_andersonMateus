@@ -10,4 +10,10 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     List<Produto> findTop3ByOrderByIdAsc();
 
+    List<Produto> findAllByOrderByMarcaAsc();
+
+    List<Produto> findByMarcaContainingIgnoreCaseOrTipoDeMetalContainingIgnoreCaseOrGemasContainingIgnoreCaseOrQuilatesContainingIgnoreCase(
+        String keyword1, String keyword2, String keyword3, String keyword4
+    );
+
 }

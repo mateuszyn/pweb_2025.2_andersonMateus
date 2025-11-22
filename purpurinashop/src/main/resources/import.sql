@@ -9,3 +9,15 @@ INSERT INTO produto (marca, tipo_de_metal, gemas, peso_em_gramas, quilates, dime
 INSERT INTO dependente (nome, data_nascimento, genero, cliente_id) VALUES ('Zezinho da Silva', '2010-05-10', 'Masculino', 1);
 
 INSERT INTO dependente (nome, data_nascimento, genero, cliente_id) VALUES ('Mariazinha de Deus', '2012-11-30', 'Feminino', 1);
+
+
+
+INSERT INTO pedido (cliente_id, forma_pagamento, dados_pagamento) VALUES (1, 'Chave PIX', '44.555.666/0001-99');
+
+INSERT INTO item_pedido (pedido_id, produto_id, quantidade, preco_unitario) VALUES (1, 1, 2, 2500.00); 
+
+INSERT INTO item_pedido (pedido_id, produto_id, quantidade, preco_unitario) VALUES (1, 3, 5, 120.00); 
+
+INSERT INTO pedido (cliente_id, forma_pagamento, dados_pagamento) VALUES (2, 'Cartão de Crédito', '**** **** **** 1234');
+
+INSERT INTO item_pedido (pedido_id, produto_id, quantidade, preco_unitario) VALUES (2, 2, 1, 850.00);

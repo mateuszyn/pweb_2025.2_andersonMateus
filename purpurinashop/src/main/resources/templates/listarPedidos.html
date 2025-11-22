@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Pedidos</title>
+    <link rel="stylesheet" th:href="@{/estilos.css}">
+</head>
+<body>
+
+    <h1>Lista de Pedidos</h1>
+
+    <table class="tabela">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Data Pedido</th>
+                <th>Forma Pgto.</th>
+                <th>Detalhes Pgto.</th>
+                <th>Total Itens</th>
+                <th>Imposto (35,75%)</th>
+                <th>TOTAL GERAL</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="ped : ${pedidos}">
+                <td th:text="${ped.id}">1</td>
+                <td th:text="${ped.cliente.nome}">Nome Cliente</td>
+                <td th:text="${#temporals.format(ped.dataPedido, 'dd/MM/yyyy HH:mm')}">Data</td>
+                <td th:text="${ped.formaPagamento}">Forma Pgto.</td>
+                <td th:text="${ped.dadosPagamento}">Dados Pgto.</td>
+                
+                <td th:text="${#numbers.formatCurrency(ped.getTotalItens())}">R$ Total Itens</td>
+                <td th:text="${#numbers.formatCurrency(ped.getValorImposto())}">R$ Imposto</td>
+                <td th:text="${#numbers.formatCurrency(ped.getTotalGeral())}">R$ TOTAL GERAL</td>
+                
+                <td>
+                    <a class = "link-acao" th:href="@{'/editarPedido/' + ${ped.id}}">Editar</a>
+                </td>
+                <td>
+                    <a class = "link-acao" th:href="@{'/excluirPedido/' + ${ped.id}}">Excluir</a>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+    <details th:each="ped : ${pedidos}" class="tabela-detalhe">
+        <summary>Detalhes do Pedido #<span th:text="${ped.id}">ID</span> - Cliente: <span th:text="${ped.cliente.nome}">Nome</span></summary>
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th colspan="4">Itens do Pedido</th>
+                </tr>
+                <tr>
+                    <th>Produto</th>
+                    <th>Marca | Metal</th>
+                    <th>Qtd.</th>
+                    <th>Valor Unitário</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr th:each="item : ${ped.itens}">
+                        <td th:text="${item.produto.marca}">Marca Prod.</td>
+                        <td th:text="${item.produto.marca + ' | ' + item.produto.tipoDeMetal}">Marca/Metal</td>
+                        <td th:text="${item.quantidade}">Qtd.</td>
+                        <td th:text="${#numbers.formatCurrency(item.precoUnitario)}">R$ Unitário</td>
+                    </tr>
+            </tbody>
+        </table>
+    </details>
+
+    <br>
+    <a class="link-acao" th:href="@{/adicionarPedido}">Novo Pedido</a>
+    <a class="link-acao" th:href="@{/}">Voltar ao Início</a>
+
+</body>
+</html>

@@ -61,3 +61,20 @@ table.tabela {
 .tabela tbody tr:hover {
     background-color: #f1f1f1;       
 }
+
+.barra-busca-form {
+    display: flex;         
+    align-items: center;   
+    margin-top: 20px;      
+    margin-bottom: 20px;   
+}
+
+.input-busca {
+    width: 350px;             
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;       
+    box-sizing: border-box; 
+    font-size: 1em;        
+}

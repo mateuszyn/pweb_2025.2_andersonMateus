@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Pedido</title>
+    <link rel="stylesheet" th:href="@{/estilos.css}">
+</head>
+<body>
+
+    <h1>Novo Pedido</h1>
+
+    <form class="meu-formulario" th:action="@{/adicionarPedido}" method="POST" th:object="${pedido}">
+
+        <div class="grupo-formulario">
+            <label for="cliente">Cliente:</label>
+            <select id="cliente" th:field="*{cliente}" required>
+                <option value="">-- Selecione o Cliente --</option>
+                <option th:each="cli : ${clientes}" th:value="${cli.id}" th:text="${cli.nome}"></option>
+            </select>
+            <br>
+            <a class="link-acao" th:href="@{/adicionarCliente}">+ Adicionar Novo Cliente</a>
+        </div>
+
+        <div class="grupo-formulario">
+            <label for="pagamento">Forma de Pagamento:</label>
+            <select id="pagamento" th:field="*{formaPagamento}" required>
+                <option value="">-- Selecione --</option>
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Cartão de Crédito">Cartão de Crédito</option>
+                <option value="Chave PIX">Chave PIX</option>
+            </select>
+        </div>
+
+        <div class="grupo-formulario">
+            <label for="dadosPagamento">Dados da Transação:</label>
+            <input type="text" id="dadosPagamento" th:field="*{dadosPagamento}" placeholder="Nº Cartão / Chave PIX / Valor Pago">
+        </div>
+
+        <h2>Itens do Pedido</h2>
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Valor Unitário</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="prod, status : ${produtos}">
+                    <td th:text="${prod.marca + ' - ' + prod.tipoDeMetal}">Produto</td>
+                    <td th:text="${#numbers.formatCurrency(prod.precoDeVenda)}">R$ 0,00</td>
+                    <td>
+                        <input type="number" value="0" min="0" 
+                               th:name="${'itens[' + status.index + '].quantidade'}" style="width: 80px;">
+                        
+                        <input type="hidden" th:value="${prod.id}" th:name="${'itens[' + status.index + '].produto.id'}" />
+                        
+                        <input type="hidden" th:value="${prod.precoDeVenda}" th:name="${'itens[' + status.index + '].precoUnitario'}" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="grupo-botoes">
+            <button type="submit" class="btn btn-adicionar">Finalizar Pedido</button>
+        </div>
+    </form>
+    <a class="link-acao" th:href="@{/listarPedidos}">Voltar para a Lista</a>
+</body>
+</html>
