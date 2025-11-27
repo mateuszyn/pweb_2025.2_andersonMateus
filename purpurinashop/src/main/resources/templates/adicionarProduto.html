@@ -1,52 +1,93 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Adicionar Produto</title>
+    <title>PurpurinaShop - Início</title>
     <link rel="stylesheet" th:href="@{/estilos.css}">
     <link rel="icon" th:href="@{/favicon.ico}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Adicionar Novo Produto</h1>
-    <form class="meu-formulario" th:action="@{/adicionarProduto}" method="POST" th:object="${produto}">
 
-        <div class="grupo-formulario">
-            <label>Marca:</label>
-            <input type="text" th:field="*{marca}" required>
+    <header class="header-purpurina">
+        <h1>Adicionar Novo Produto</h1>
+    </header>
+
+        <form class="formulario-cliente" th:action="@{/adicionarProduto}" method="POST" th:object="${produto}">
+
+        <fieldset class="secao-formulario card-borda">
+            <legend class="titulo-purpurina">Identificação e Composição</legend>
+            
+            <div class="grid-formulario">
+                <label>Marca:</label>
+                <input type="text" th:field="*{marca}" required>
+            </div>
+
+            <div class="grid-formulario duas-colunas">
+                <div class="grupo-formulario">
+                    <label>Tipo de Metal:</label>
+                    <input type="text" th:field="*{tipoDeMetal}" placeholder="Ouro, Prata, Ródio..." class="input-select-tematico">
+                </div>
+                <div class="grupo-formulario">
+                    <label>Quilates:</label>
+                    <input type="text" th:field="*{quilates}" class="input-select-tematico">
+                </div>
+            </div>
+
+            <div class="grid-formulario">
+                <label>Gemas:</label>
+                <input type="text" th:field="*{gemas}" placeholder="Diamante, Rubi (separar por vírgula)">
+            </div>
+
+        </fieldset>
+
+        <fieldset class="secao-formulario card-borda">
+            <legend class="titulo-purpurina">Dimensões e Peso</legend>
+
+            <div class="grid-formulario duas-colunas">
+                <div class="grupo-formulario">
+                    <label>Peso (gramas):</label>
+                    <input type="number" step="0.01" th:field="*{pesoEmGramas}">
+                </div>
+                <div class="grupo-formulario">
+                    <label>Dimensões (AxLxP):</label>
+                    <input type="text" th:field="*{dimensoes}" placeholder="10x5x2mm">
+                </div>
+            </div>
+            
+        </fieldset>
+
+        <fieldset class="secao-formulario card-borda">
+            <legend class="titulo-purpurina">Preços</legend>
+
+            <div class="grid-formulario duas-colunas">
+                <div class="grupo-formulario">
+                    <label>Preço de Compra:</label>
+                    <input type="number" step="0.01" th:field="*{precoDeCompra}">
+                </div>
+                <div class="grupo-formulario">
+                    <label>Preço de Venda:</label>
+                    <input type="number" step="0.01" th:field="*{precoDeVenda}" required>
+                </div>
+            </div>
+        </fieldset>
+
+                <div class="grupo-botoes-centralizado">
+            <button type="submit" class="btn-purpura btn-grande">Adicionar Produto</button>
+        </div>
+    </form>
+
+        <div class="navegacao-icones">
+            
+            <a th:href="@{/listarProdutos}" class="btn-icone-grande" title="Voltar para a Lista de Produtos">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+
+            <a th:href="@{/}" class="btn-icone-grande" title="Tela Inicial">
+                <i class="fas fa-home"></i>
+            </a>
+            
         </div>
-        <div class="grupo-formulario">
-            <label>Tipo de Metal:</label>
-            <input type="text" th:field="*{tipoDeMetal}" placeholder="Ouro, Prata, Ródio...">
-        </div>
-        <div class="grupo-formulario">
-            <label>Gemas:</label>
-            <input type="text" th:field="*{gemas}" placeholder="Diamante, Rubi (separar por vírgula)">
-        </div>
-        <div class="grupo-formulario">
-            <label>Peso (gramas):</label>
-            <input type="number" step="0.01" th:field="*{pesoEmGramas}">
-        </div>
-        <div class="grupo-formulario">
-            <label>Quilates:</label>
-            <input type="text" th:field="*{quilates}">
-        </div>
-        <div class="grupo-formulario">
-            <label>Dimensões (AxLxP):</label>
-            <input type="text" th:field="*{dimensoes}" placeholder="10x5x2mm">
-        </div>
-        <div class="grupo-formulario">
-            <label>Preço de Compra:</label>
-            <input type="number" step="0.01" th:field="*{precoDeCompra}">
-        </div>
-        <div class="grupo-formulario">
-            <label>Preço de Venda:</label>
-            <input type="number" step="0.01" th:field="*{precoDeVenda}" required>
-        </div>
-        <div class="grupo-botoes">
-            <button type="submit" class="btn btn-adicionar">Adicionar</button>
-        </div>
-    </form>
-    <br>
-    <a class = "link-acao"  th:href="@{/listarProdutos}">Voltar para a Lista</a>
 </body>
 </html>
