@@ -12,35 +12,59 @@ body { font-family: sans-serif; padding: 20px; overflow-y: auto !important;}
 
 .grupo-botoes button:hover { background-color: #000; }
 
+/* ===============================
+   ESTILO DA TABELA (PÚRPURA)
+   =============================== */
+
 table.tabela {
-    width: 100%;                     
-    border-collapse: collapse;        
-    margin-top: 25px;                 
-    margin-bottom: 25px;              
-    font-size: 0.9em;                 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 0.9em;
+    /* Borda púrpura suave para o contêiner */
+    border: 1px solid #800080; 
+    box-shadow: 0 4px 8px rgba(106, 13, 173, 0.2); /* Sombra púrpura */
+    border-radius: 6px; /* Bordas arredondadas */
+    overflow: hidden; /* Garante que as bordas internas sigam o radius */
 }
 
+/* Estilo para Cabeçalho (Thead) */
+.tabela thead th {
+    /* Cor de fundo principal Púrpura */
+    background-color: #6a0dad; 
+    /* Texto em Branco */
+    color: #ffffff; 
+    font-weight: bold;
+    border: none; /* Remove bordas internas no cabeçalho */
+    padding: 15px 15px;
+}
+
+/* Estilo de Células (Th e Td) */
 .tabela th,
 .tabela td {
-    border: 1px solid #ddd;           
-    padding: 12px 15px;            
+    /* Borda divisória sutilmente mais clara */
+    border: 1px solid rgba(128, 0, 128, 0.2); 
+    padding: 12px 15px; 
     text-align: left;
 }
 
 
-.tabela th {
-    background-color: #f4f4f4;       
-    font-weight: bold;
-    color: #333;
-}
+/* Estilo de Linhas do Corpo (Alternância de cores) */
 
+/* Linhas pares (fundo muito claro) */
 .tabela tbody tr:nth-child(even) {
-    background-color: #f9f9f9;       
+    background-color: #fcf6ff; 
+}
+/* Linhas ímpares (fundo branco) */
+.tabela tbody tr:nth-child(odd) {
+    background-color: #ffffff;
 }
 
+/* Efeito Hover (Fundo púrpura suave e visível) */
 .tabela tbody tr:hover {
-    background-color: #f1f1f1;       
+    background-color: #e9d5ff; /* Púrpura pastel para destaque */
+    cursor: pointer;
 }
 
 .barra-busca-form {
@@ -314,4 +338,91 @@ table.tabela {
     
     /* Garante que o ícone interno seja visível */
     font-size: 1.5em; /* Ajusta o tamanho do ícone dentro do círculo */
+}
+
+/* No seu arquivo estilos.css */
+
+/* Estilo para agrupar os botões lado a lado com espaçamento */
+.grupo-botoes-acao {
+    display: flex; /* Coloca os itens lado a lado */
+    gap: 15px; /* Espaço entre os botões */
+    margin-top: 30px; /* Espaço acima do grupo */
+    margin-bottom: 30px; /* Espaço abaixo do grupo */
+    /* text-align: center; (Use se quiser centralizar o grupo inteiro, mas Flexbox é melhor) */
+}
+
+/* Garante que os botões dentro do grupo tenham espaço para o ícone */
+.grupo-botoes-acao .btn-purpura i {
+    margin-right: 5px;
+}
+
+/* Ajuste para que os botões não se estiquem demais, apenas o necessário */
+.grupo-botoes-acao .btn-purpura {
+    /* Sobrescreve a centralização do botão de Contato, permitindo que ele se ajuste aqui */
+    display: inline-block !important; 
+    margin: 0; 
+    max-width: none; 
+}
+
+/* ===============================
+   GRUPO DE BOTÕES DE ÍCONE GRANDE
+   =============================== */
+
+/* Contêiner para os ícones de ação */
+.grupo-icones-acao {
+    display: flex;
+    justify-content: center; /* Centraliza o grupo de ícones na horizontal */
+    gap: 25px; /* Espaçamento maior entre os ícones */
+    margin-top: 40px; /* Espaço acima do grupo */
+    margin-bottom: 40px; /* Espaço abaixo do grupo */
+    padding: 15px; /* Espaçamento interno */
+    border: 1px solid rgba(128, 0, 128, 0.2); /* Borda sutil para o grupo */
+    border-radius: 8px;
+    background-color: #fcf6ff; /* Fundo suave para o grupo */
+}
+
+/* Estilo para cada botão de ícone individual */
+.btn-icone-grande {
+    display: inline-flex; /* Usa flexbox para centralizar o ícone */
+    justify-content: center; /* Centraliza horizontalmente o ícone */
+    align-items: center; /* Centraliza verticalmente o ícone */
+    
+    /* Dimensões do botão quadrado ou redondo */
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+    border-radius: 15%; /* Levemente arredondado (para quadrado) */
+    /* Se quiser totalmente redondo: border-radius: 50%; */
+    
+    background-color: #6a0dad; /* Fundo Púrpura */
+    color: #ffffff; /* Cor do ícone (branco) */
+    border: 2px solid #800080; /* Borda mais escura para contraste */
+    box-shadow: 0 4px 8px rgba(106, 13, 173, 0.4); /* Sombra púrpura */
+    text-decoration: none; /* Remove sublinhado padrão */
+    transition: all 0.2s ease-in-out; /* Transição suave para hover */
+}
+
+/* Estilo do Ícone dentro do botão */
+.btn-icone-grande i {
+    font-size: 3em; /* Tamanho do ícone (grande) */
+}
+
+/* Efeito Hover */
+.btn-icone-grande:hover {
+    background-color: #800080; /* Fundo mais escuro no hover */
+    transform: translateY(-3px); /* Leve elevação */
+    box-shadow: 0 6px 12px rgba(106, 13, 173, 0.6); /* Sombra mais intensa */
+    border-color: #5d078a;
+}
+
+/* Acessibilidade: Oculta o texto para visualização, mas mantém para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }

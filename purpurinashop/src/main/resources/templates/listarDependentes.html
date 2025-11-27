@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Dependentes</title>
-    <link rel="stylesheet" th:href="@{/estilos.css}">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" th:href = "@{/estilos.css}">
     <link rel="icon" th:href="@{/favicon.ico}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <h1>Lista de Dependentes</h1>
+    <h1 class="header-purpurina">Lista de Dependentes</h1>
 
     <table class="tabela">
         <thead>
@@ -40,8 +42,30 @@
         </tbody>
     </table>
 
-    <a class="link-acao" th:href="@{/adicionarDependente}">Adicionar Novo Dependente</a>
-    <a class="link-acao" th:href="@{/listarClientes}">Voltar à Lista de Clientes</a>
+<div class="grupo-icones-acao">
+
+     <a th:href="@{/listarClientes}" class="btn-icone-grande" title="Voltar à Lista de Clientes">
+        <i class="fas fa-arrow-left"></i>
+        <span class="sr-only">Voltar à Lista de Clientes</span> 
+    </a>
+
+    <a th:href="@{/}" class="btn-icone-grande" title="Voltar para o Início">
+        <i class="fas fa-home"></i>
+        <span class="sr-only">Voltar para o Início</span> 
+    </a>
+
+    <a th:href="@{/adicionarDependente}" class="btn-icone-grande" title="Adicionar Novo Dependente">
+        <i class="fas fa-users-viewfinder"></i> <i class="fas fa-user-plus"></i>
+        <span class="sr-only">Adicionar Novo Dependente</span> 
+    </a>
+
+
+    
+
+    
+
+
+</div>
 
 </body>
 </html>

@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <title>Lista de Clientes</title>
     <link rel="stylesheet" th:href = "@{/estilos.css}">
     <link rel="icon" th:href="@{/favicon.ico}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 <body>
-    <h1>Lista de Clientes</h1>
+    <h1 class="header-purpurina">Lista de Clientes</h1>
 
     <table class="tabela">
         <thead>
@@ -47,9 +50,23 @@
         </tbody>
     </table>
     
-    <a class="link-acao" th:href="@{/}"> Voltar para o Início</a>
-    <a class="link-acao" th:href="@{/adicionarCliente}">Adicionar Novo Cliente</a>
-    <a class="link-acao" th:href = "@{/listarDependentes}"> Ver Dependentes </a>
+    <div class="grupo-icones-acao">
+        <a th:href="@{/}" class="btn-icone-grande" title="Voltar para o Início">
+            <i class="fas fa-arrow-left"></i>
+            <span class="sr-only">Voltar para o Início</span> 
+        </a>
+
+        <a th:href="@{/adicionarCliente}" class="btn-icone-grande" title="Adicionar Novo Cliente">
+            <i class="fas fa-user-plus"></i>
+            <span class="sr-only">Adicionar Novo Cliente</span> 
+        </a>
+
+        <a th:href="@{/listarDependentes}" class="btn-icone-grande" title="Ver Dependentes">
+            <i class="fas fa-users"></i>
+            <span class="sr-only">Ver Dependentes</span> 
+        </a>
+
+    </div>
  
 </body>
 </html>
