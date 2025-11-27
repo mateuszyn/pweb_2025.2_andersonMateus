@@ -7,7 +7,6 @@
     <link rel="icon" th:href="@{/favicon.ico}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
 </head>
 <body>
     <header class="header-purpurina">
@@ -25,12 +24,15 @@
                     class="card-borda" 
                     style="min-width: 300px; max-width: 300px;">
                 <header>
-                    <span class="avatar-circular">
-                    <i th:classappend="${cli.genero == 'Feminino' ? 'fa-person-dress' : 'fa-person'}"
-                       class="fas fa-2x"
-                       th:style="${cli.genero == 'Feminino' ? 'color: #800080;' : 'color: #800080;'}">
-                    </i></span>
-                    
+                    <span class="avatar-circular"> 
+                        <i 
+                            th:classappend="${cli.genero == 'Não Informado' or cli.genero == 'Indefinido' ? 'fa-question' : 
+                                        (cli.genero == 'Feminino' ? 'fa-person-dress' : 'fa-person')}"
+                            class="fas fa-2x"
+                            th:style="${cli.genero == 'Não Informado' or cli.genero == 'Indefinido' ? 'color: #888888;' : 
+                                    (cli.genero == 'Feminino' ? 'color: #ff69b4;' : 'color: #007bff;')}">
+                        </i>
+                    </span>
                     <span th:text="${cli.nome}" class="titulo-purpurina">Nome do Cliente</span>
                 </header>
                 
@@ -117,7 +119,7 @@
     </div>
     <a th:href="@{/listarPedidos}" role="button" class="btn-purpura link-com-linha">Ver lista completa de pedidos...</a>
     </section>
-    
+
     <br><br>
     <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
         <a class="link-acao" th:href="@{/contato}">Falar com o Suporte (🟢WhatsApp/💌Email)</a>

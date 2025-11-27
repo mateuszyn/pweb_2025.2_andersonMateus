@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Pedidos</title>
-    <link rel="stylesheet" th:href="@{/estilos.css}">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" th:href = "@{/estilos.css}">
+    <link rel="icon" th:href="@{/favicon.ico}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <h1>Lista de Pedidos</h1>
+    <h1 class="header-purpurina">Lista de Pedidos</h1>
 
     <table class="tabela">
         <thead>
@@ -72,9 +75,18 @@
         </table>
     </details>
 
-    <br>
-    <a class="link-acao" th:href="@{/adicionarPedido}">Novo Pedido</a>
-    <a class="link-acao" th:href="@{/}">Voltar ao Início</a>
+    <div class="grupo-icones-acao">
+
+        <a th:href="@{/}" class="btn-icone-grande" title="Voltar para o Início">
+            <i class="fas fa-arrow-left"></i>
+            <span class="sr-only">Voltar para o Início</span> 
+        </a>
+         
+        <a th:href="@{/adicionarPedido}" class="btn-icone-grande" title="Adicionar Novo Produto">
+            <i class="fas fa-plus-square"></i> <span class="sr-only">Adicionar Novo Pedido</span> 
+        </a>
+
+    </div>
 
 </body>
 </html>
