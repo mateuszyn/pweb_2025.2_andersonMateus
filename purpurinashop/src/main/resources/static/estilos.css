@@ -523,3 +523,30 @@ table.tabela {
     box-shadow: 0 0 5px rgba(106, 13, 173, 0.3);
     outline: none;
 }
+
+/* No seu estilos.css */
+
+/* Input de Quantidade na Tabela */
+.tabela-itens-pedido .input-quantidade {
+    width: 70px; /* Largura menor para o campo de quantidade */
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Link "+ Adicionar Novo Cliente" */
+.link-adicionar-pequeno {
+    display: block; 
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #5d078a;
+}
+
+/* Para melhorar o layout de pagamento (no grid 2 colunas) */
+.formulario-cliente .duas-colunas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}

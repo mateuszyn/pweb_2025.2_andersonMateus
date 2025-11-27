@@ -1,80 +1,94 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Pedido</title>
+    <title>PurpurinaShop - Início</title>
     <link rel="stylesheet" th:href="@{/estilos.css}">
+    <link rel="icon" th:href="@{/favicon.ico}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <h1>Editar Pedido</h1>
-
-    <form class="meu-formulario" th:action="@{/editarPedido}" method="POST" th:object="${pedido}">
-
+    <header class="header-purpurina">
+        <h1>Editar Pedido</h1>
+    </header>
+    <br>
+    <form class="formulario-cliente card-borda" th:action="@{/editarPedido}" method="POST" th:object="${pedido}">
         <input type="hidden" th:field="*{id}" />
-
-        <div class="grupo-formulario">
-            <label for="cliente">Cliente:</label>
-            <select id="cliente" th:field="*{cliente}" required>
-                <option value="">-- Selecione o Cliente --</option>
-                <option th:each="cli : ${clientes}" 
-                        th:value="${cli.id}" 
-                        th:text="${cli.nome}"
-                        th:selected="${cli.id == pedido.cliente.id}">
+        <fieldset class="secao-formulario">
+            <legend class="titulo-purpurina">Informações do Pedido</legend>
+            <div class="grid-formulario">
+                <label for="cliente">Cliente:</label>
+                <select id="cliente" th:field="*{cliente}" required class="input-select-tematico">
+                    <option value="">-- Selecione o Cliente --</option>
+                    <option th:each="cli : ${clientes}" 
+                    th:value="${cli.id}" 
+                    th:text="${cli.nome}"
+                    th:selected="${cli.id == pedido.cliente.id}">
                     Nome do Cliente
                 </option>
             </select>
-            <br>
-            <a class="link-acao" th:href="@{/adicionarCliente}">+ Adicionar Novo Cliente</a>
+            <a class="btn-purpura-outline link-adicionar-pequeno" th:href="@{/adicionarCliente}">+ Adicionar Novo Cliente</a>
         </div>
 
-        <div class="grupo-formulario">
-            <label for="pagamento">Forma de Pagamento:</label>
-            <select id="pagamento" th:field="*{formaPagamento}" required>
-                <option value="">-- Selecione --</option>
-                <option value="Dinheiro">Dinheiro</option>
-                <option value="Cartão de Crédito">Cartão de Crédito</option>
-                <option value="Chave PIX">Chave PIX</option>
-            </select>
-        </div>
-
-        <div class="grupo-formulario">
-            <label for="dadosPagamento">Dados da Transação:</label>
-            <input type="text" id="dadosPagamento" th:field="*{dadosPagamento}" placeholder="Nº Cartão / Chave PIX / Valor Pago">
-        </div>
-
-        <h2>Itens do Pedido</h2>
-        <table class="tabela">
-            <thead>
-                <tr>
-                    <th>Produto</th>
-                    <th>Valor Unitário</th>
-                    <th>Quantidade</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="prod, status : ${produtos}">
-                    <td th:text="${prod.marca + ' - ' + prod.tipoDeMetal}">Produto</td>
-                    <td th:text="${#numbers.formatCurrency(prod.precoDeVenda)}">R$ 0,00</td>
-                    <td>
-                        <input type="number" min="0" 
-                               th:name="${'itens[' + status.index + '].quantidade'}" 
-                               th:value="${(pedido.itens.size() > status.index and pedido.itens[__${status.index}__].produto.id == prod.id) ? pedido.itens[__${status.index}__].quantidade : 0}"
-                               style="width: 80px;">
-                        
-                        <input type="hidden" th:value="${prod.id}" th:name="${'itens[' + status.index + '].produto.id'}" />
-                        <input type="hidden" th:value="${prod.precoDeVenda}" th:name="${'itens[' + status.index + '].precoUnitario'}" />
-                        <input type="hidden" th:field="*{itens[__${status.index}__].id}" />
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="grupo-botoes">
-            <button type="submit" class="btn btn-adicionar">Salvar Alterações</button>
+            <div class="grid-formulario duas-colunas">
+                <div class="grupo-formulario">
+                    <label for="pagamento">Forma de Pagamento:</label>
+                    <select id="pagamento" th:field="*{formaPagamento}" required class="input-select-tematico">
+                        <option value="">-- Selecione --</option>
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Cartão de Crédito">Cartão de Crédito</option>
+                        <option value="Chave PIX">Chave PIX</option>
+                    </select>
+                </div>
+                <div class="grupo-formulario">
+                    <label for="dadosPagamento">Dados da Transação:</label>
+                    <input type="text" id="dadosPagamento" th:field="*{dadosPagamento}" placeholder="Nº Cartão / Chave PIX / Valor Pago">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="secao-formulario">
+            <legend class="titulo-purpurina">Itens do Pedido</legend>
+            <table class="tabela tabela-itens-pedido">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Valor Unitário</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="prod, status : ${produtos}">
+                        <td th:text="${prod.marca + ' - ' + prod.tipoDeMetal}">Produto</td>
+                        <td th:text="${#numbers.formatCurrency(prod.precoDeVenda)}">R$ 0,00</td>
+                        <td>
+                            <input type="number" min="0" 
+                            th:name="${'itens[' + status.index + '].quantidade'}" 
+                            th:value="${(pedido.itens.size() > status.index and pedido.itens[__${status.index}__].produto.id == prod.id) ? pedido.itens[__${status.index}__].quantidade : 0}"
+                            class="input-quantidade">
+                            <input type="hidden" th:value="${prod.id}" th:name="${'itens[' + status.index + '].produto.id'}" />
+                            <input type="hidden" th:value="${prod.precoDeVenda}" th:name="${'itens[' + status.index + '].precoUnitario'}" />
+                            <input type="hidden" th:field="*{itens[__${status.index}__].id}" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <div class="grupo-botoes-centralizado">
+            <button type="submit" class="btn-purpura btn-grande">Salvar Alterações</button>
         </div>
     </form>
-    <a class="link-acao" th:href="@{/listarPedidos}">Voltar para a Lista</a>
+        <div class="navegacao-icones">
+            
+            <a th:href="@{/listarPedidos}" class="btn-icone-grande" title="Voltar para a Lista de Pedidos">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+
+            <a th:href="@{/}" class="btn-icone-grande" title="Tela Inicial">
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
 
 </body>
 </html>
