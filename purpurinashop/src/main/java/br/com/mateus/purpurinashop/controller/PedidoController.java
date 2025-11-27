@@ -60,10 +60,12 @@ public class PedidoController {
         
         pedido.setDataPedido(LocalDateTime.now());
         
-        List<ItemPedido> itensValidos = pedido.getItens().stream()
-            .filter(item -> item.getQuantidade() != null && item.getQuantidade() > 0 && item.getProduto() != null)
-            .toList();
-        
+        List<ItemPedido> itensValidos = pedido.getItens().stream().filter(item -> item.getQuantidade() != null && item.getQuantidade() > 0 && item.getProduto() != null).toList();
+
+        if (itensValidos.isEmpty()) {
+            return "redirect:/adicionarPedido";
+        }
+
         for (ItemPedido item : itensValidos) {
             item.setPedido(pedido);
             
@@ -109,6 +111,10 @@ public class PedidoController {
         List<ItemPedido> itensValidos = pedido.getItens().stream()
             .filter(item -> item.getQuantidade() != null && item.getQuantidade() > 0)
             .toList();
+
+        if (itensValidos.isEmpty()) {
+            return "redirect:/adicionarPedido";
+        }
 
         for (ItemPedido item : itensValidos) {
             item.setPedido(pedido);
