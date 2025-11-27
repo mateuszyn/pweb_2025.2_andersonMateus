@@ -1,79 +1,118 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <title>PurpurinaShop - Início</title>
     <link rel="stylesheet" th:href="@{/estilos.css}">
     <link rel="icon" th:href="@{/favicon.ico}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
 <body>
-
-    <h1>Bem-vindo à PurpurinaShop!</h1>
-    <hr>
-
-    <h2>Últimos Clientes Cadastrados</h2>
-    <table class="tabela">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="cli : ${clientes}">
-                <td th:text="${cli.id}"></td>
-                <td th:text="${cli.nome}"></td>
-                <td th:text="${cli.email}"></td>
-            </tr>
-        </tbody>
-    </table>
-    <a class="link-acao" th:href="@{/listarClientes}">Ver lista completa de clientes...</a>
-
-    <h2>Últimos Produtos Cadastrados</h2>
-    <table class="tabela">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Marca</th>
-                <th>Preço Venda</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="prod : ${produtos}">
-                <td th:text="${prod.id}"></td>
-                <td th:text="${prod.marca}"></td>
-                <td th:text="${#numbers.formatCurrency(prod.precoDeVenda)}"></td>
-            </tr>
-        </tbody>
-    </table>
-    <a class="link-acao" th:href="@{/listarProdutos}">Ver lista completa de produtos...</a>
-
-    <br><br>
-    <h2>Últimos Pedidos Recebidos</h2>
-    <table class="tabela">
-        <thead>
-            <tr>
-                <th>ID Pedido</th>
-                <th>Cliente</th>
-                <th>Data Pedido</th>
-                <th>Total Geral</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="ped : ${pedidos}">
-                <td th:text="${ped.id}"></td>
-                <td th:text="${ped.cliente.nome}"></td>
-                <td th:text="${#temporals.format(ped.dataPedido, 'dd/MM/yyyy HH:mm')}"></td>
-                <td th:text="${#numbers.formatCurrency(ped.getTotalGeral())}"></td>
-            </tr>
-        </tbody>
-    </table>
-    <a class="link-acao" th:href="@{/listarPedidos}">Ver lista completa de pedidos...</a>
-    <br><br>
+    <header class="header-purpurina">
+        <h1>Bem-vindo à PurpurinaShop!</h1>
         <hr>
-    <a class="link-acao" th:href="@{/contato}">Falar com o Suporte (🟢WhatsApp/💌Email)</a>
+    </header>
+
+    <h2 class="titulo-purpurina titulo-com-linha">Últimos Clientes Cadastrados</h2>
+        
+        <div class="listagem-horizontal">
+
+            <article th:each="cli : ${clientes}" 
+                    class="card-borda" 
+                    style="min-width: 300px; max-width: 300px;">
+                <header>
+                    <span class="avatar-circular">
+                    <i th:classappend="${cli.genero == 'Feminino' ? 'fa-person-dress' : 'fa-person'}"
+                       class="fas fa-2x"
+                       th:style="${cli.genero == 'Feminino' ? 'color: #800080;' : 'color: #800080;'}">
+                    </i></span>
+                    
+                    <span th:text="${cli.nome}" class="titulo-purpurina">Nome do Cliente</span>
+                </header>
+                
+                <div class="card-field"><strong>ID:</strong> <span th:text="${cli.id}">1</span></div>
+                <div class="card-field"><strong>Gênero:</strong> <span th:text="${cli.genero}">Feminino</span></div>
+                <div class="card-field"><strong>Telefone:</strong> <span th:text="${cli.telefone}">84999998888</span></div>
+                <div class="card-field"><strong>Email:</strong> <span th:text="${cli.email}">email@mail.com</span></div>
+                <div class="card-field"><strong>CPF:</strong> <span th:text="${cli.cpf}">123.456.789-00</span></div>
+
+            </article>
+
+            <div th:if="${#lists.isEmpty(clientes)}" class="mensagem-vazia">
+                Nenhum cliente cadastrado recentemente.
+            </div>
+
+        </div>
+        <a th:href="@{/listarClientes}" role="button" class="btn-purpura link-com-linha">Ver todos os clientes...</a>
+        
+    <h2 class="titulo-purpurina titulo-com-linha">Últimos Produtos Cadastrados</h2>
+            
+    <div class="listagem-horizontal">
+
+        <article th:each="prod : ${produtos}" 
+                class="card-borda">
+            <header>
+                <i class="fas fa-tag fa-2x" style="color: #6a0dad;"></i> 
+                
+                <span th:text="${prod.marca}" class="titulo-purpurina">Marca do Produto</span>
+            </header>
+            
+            <div class="card-field"><strong>ID:</strong> <span th:text="${prod.id}">101</span>
+            </div>
+
+            <div class="card-field"><strong>Preço Venda:</strong> <span th:text="${#numbers.formatCurrency(prod.precoDeVenda)}">R$ 99,99</span>
+            </div>
+
+            <div class="card-field"><strong>Gemas:</strong> <span th:text="${prod.gemas} ?: 'N/A'">Gemas</span> 
+
+            </div>
+            
+        </article>
+
+        <div th:if="${#lists.isEmpty(produtos)}" class="mensagem-vazia">
+            Nenhum produto cadastrado recentemente.
+        </div>
+
+    </div>
+    <a th:href="@{/listarProdutos}" role="button" class="btn-purpura link-com-linha">Ver lista completa de produtos...</a>
+
+    <h2 class="titulo-purpurina titulo-com-linha">Últimos Pedidos Recebidos</h2>
+
+    <div class="listagem-horizontal">
+
+        <article th:each="ped : ${pedidos}" 
+                class="card-borda">
+            <header>
+                <i class="fas fa-shopping-cart fa-2x" style="color: #6a0dad;"></i> 
+                
+                <span th:text="${ped.cliente.nome}" class="titulo-purpurina">Nome do Cliente</span>
+            </header>
+            
+            <div class="card-field">
+                <strong>ID Pedido:</strong> <span th:text="${ped.id}">201</span>
+            </div>
+            <div class="card-field">
+                <strong>Data Pedido:</strong> <span th:text="${#temporals.format(ped.dataPedido, 'dd/MM/yyyy HH:mm')}"></span>
+            </div>
+            <div class="card-field">
+                <strong>Total Geral:</strong> <span th:text="${#numbers.formatCurrency(ped.getTotalGeral())}">R$ 5.000,00</span>
+            </div>
+            
+        </article>
+
+        <div th:if="${#lists.isEmpty(pedidos)}" class="mensagem-vazia">
+            Nenhum pedido recebido recentemente.
+        </div>
+
+    </div>
+    <a th:href="@{/listarPedidos}" role="button" class="btn-purpura link-com-linha">Ver lista completa de pedidos...</a>
+
+    <br><br>
+    <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+        <a class="link-acao" th:href="@{/contato}">Falar com o Suporte (🟢WhatsApp/💌Email)</a>
+    </div>
 
 </body>
 </html>

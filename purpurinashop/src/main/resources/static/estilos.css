@@ -1,4 +1,4 @@
-body { font-family: sans-serif; padding: 20px; }
+body { font-family: sans-serif; padding: 20px; overflow-y: auto !important;}
 
 .meu-formulario { display: flex; flex-direction: column; max-width: 500px; gap: 15px; }
 
@@ -11,25 +11,6 @@ body { font-family: sans-serif; padding: 20px; }
 .grupo-botoes button { padding: 10px 15px; background-color: #000; color: white; border: none; border-radius: 4px; cursor: pointer; }
 
 .grupo-botoes button:hover { background-color: #000; }
-
-.link-acao {
-    display: inline-block; 
-   
-
-    border: 1px solid #000000; 
-    
-
-    color: #000;           
-    text-decoration: none;     
-    font-weight: bold;        
-
-    transition: all 0.2s ease-in-out; 
-}
-
-.link-acao:hover {
-    background-color: #000; 
-    color: white;           
-}
 
 table.tabela {
     width: 100%;                     
@@ -77,4 +58,259 @@ table.tabela {
     margin-right: 10px;       
     box-sizing: border-box; 
     font-size: 1em;        
+}
+
+/* Estilo para separar campos dentro do card */
+.card-field {
+    border-bottom: 1px solid #ddd; /* Linha divisória cinza clara */
+    padding: 8px 0; /* Espaçamento interno (topo/base) */
+    margin: 0; /* Remove margem padrão para melhor controle de espaçamento */
+    margin-top: 0;
+}
+/* Estilo para remover a borda do último item */
+.card-field:last-of-type {
+    border-bottom: none;
+}
+/* No seu arquivo estilos.css */
+
+.btn-purpura {
+    /* Cor de fundo base (Púrpura Escuro) */
+    background-color: #6a0dad !important; 
+    /* Cor do texto (para garantir contraste) */
+    color: #ffffff !important; 
+    /* Cor da borda */
+    border-color: #6a0dad !important;
+}
+
+.btn-purpura:hover, 
+.btn-purpura:focus {
+    /* Cor de fundo no hover (Púrpura Clássico, um pouco mais claro) */
+    background-color: #800080 !important; 
+    /* Cor da borda no hover */
+    border-color: #800080 !important;
+    /* Adiciona uma sombra sutil para efeito */
+    box-shadow: 0 0.25rem 0.5rem rgba(128, 0, 128, 0.4);
+}
+
+/* No seu arquivo estilos.css */
+
+.titulo-principal-purpura {
+    /* Cor Púrpura Escura, a mesma usada no botão */
+    color: #6a0dad; 
+}
+
+/* No seu arquivo estilos.css */
+
+.header-purpurina {
+    background-color: #6a0dad; /* Púrpura Escuro */
+    color: #ffffff;             /* Texto branco */
+    padding: 20px;               /* Adiciona um pouco de preenchimento */
+    text-align: center;          /* Centraliza o texto */
+    margin-bottom: 30px;         /* Espaço abaixo do header */
+}
+
+/* Garante que o H1 dentro do header também seja branco */
+.header-purpurina h1 {
+    color: #ffffff;             
+    margin-top: 0;               /* Remove a margem superior padrão do h1 */
+    margin-bottom: 10px;         /* Ajusta a margem inferior para a HR */
+}
+
+/* Estiliza a linha horizontal dentro do header */
+.header-purpurina hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Linha mais suave */
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* ===============================
+   ESTILOS GLOBAIS E TÍTULOS
+   =============================== */
+
+/* Estilo para o cabeçalho principal (fundo púrpura) */
+.header-purpurina {
+    background-color: #6a0dad; /* Púrpura Escuro */
+    color: #ffffff;             /* Texto branco */
+    padding: 20px;               
+    text-align: center;          
+    margin-bottom: 30px;         
+}
+
+/* Garante que o H1 dentro do header seja branco */
+.header-purpurina h1 {
+    color: #ffffff;             
+    margin-top: 0;               
+    margin-bottom: 10px;         
+}
+
+/* Estiliza a linha horizontal dentro do header */
+.header-purpurina hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.3); 
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+
+.container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Card de Cliente (Substitui o style do <article>) */
+.card-dimensoes {
+    min-width: 300px; 
+    max-width: 300px;
+    flex-shrink: 0; /* Impede que os cards encolham */
+}
+
+/* Campo de dados dentro do card para melhor legibilidade */
+.card-field {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+/* Mensagem de lista vazia */
+.mensagem-vazia {
+    width: 100%; 
+    text-align: center; 
+    color: #888;
+}
+
+
+/* ===============================
+   ESTILOS DE BOTÕES E LINKS
+   =============================== */
+
+/* Botão Púrpura (Substitui o style inline do link 'Ver todos os clientes...') */
+.btn-purpura {
+    background-color: #6a0dad !important; 
+    color: #ffffff !important; 
+    border-color: #6a0dad !important;
+    text-decoration: none !important; /* Garante que não tenha sublinhado */
+    
+}
+
+.btn-purpura:hover, 
+.btn-purpura:focus {
+    background-color: #800080 !important; 
+    border-color: #800080 !important;
+    box-shadow: 0 0.25rem 0.5rem rgba(128, 0, 128, 0.4);
+}
+
+/* Estilo para links de ação genéricos (produtos, pedidos, contato) */
+.link-acao {
+    color: #6a0dad; /* Púrpura */
+    font-weight: bold;
+    text-decoration: none;
+    display: block; /* Para ocupar sua própria linha */
+    margin-top: 10px;
+}
+
+.link-acao:hover {
+    color: #800080;
+    text-decoration: underline;
+}
+
+/* No seu arquivo estilos.css */
+
+.card-borda {
+    /* Define a borda: 1px de espessura, sólida, e na cor púrpura */
+    border: 1px solid #6a0dad; 
+    /* Adiciona um leve arredondamento nas bordas (opcional, mas melhora o visual) */
+    border-radius: 6px; 
+    /* Remove a sombra padrão do PicoCSS se estiver sobrepondo (opcional) */
+    box-shadow: none; 
+}
+
+/* Opcional: Efeito de destaque ao passar o mouse */
+.card-borda:hover {
+    box-shadow: 0 0 10px rgba(106, 13, 173, 0.4); /* Sombra roxa sutil */
+    border-color: #800080; /* Púrpura ligeiramente mais claro no hover */
+}
+
+/* No seu arquivo estilos.css */
+
+/* No seu arquivo estilos.css */
+
+.titulo-purpurina {
+    color: #800080; 
+    font-weight: bold;
+    font-size: 1.2em; 
+    text-shadow: 
+        0 0 1px #fff,     
+        1px 1px 3px rgba(106, 13, 173, 0.5); 
+        
+    margin-top: 0.5rem; 
+    
+    margin-bottom: 0rem; /* Ajuste este valor para o quão "colado" você quer o título dos cards. 0px é totalmente colado. */
+}
+
+/* Garante que o span esteja com display inline-block para margens e padding corretos (opcional) */
+.card-borda header span.titulo-purpurina {
+    display: inline-block;
+}
+
+/* [NOVO] Estilos para o contêiner de listagem horizontal deslizante */
+.listagem-horizontal {
+    /* Estilos de Flexbox e Rolagem */
+    display: flex; 
+    gap: 5px; 
+    overflow-x: scroll;
+    
+    /* Espaçamentos e Margens */
+    padding-bottom: 5px; 
+    margin-bottom: 10px;
+    margin-top: 0px !important; /* Para garantir que o título fique colado */
+    
+    /* Opcional: Para evitar que a barra de rolagem horizontal seja visível */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Opcional: Para Chrome, Safari, etc. */
+.listagem-horizontal::-webkit-scrollbar {
+    display: none;
+}
+
+/* Estilo para Títulos: Borda Inferior Cinza e Espaçamento */
+.titulo-com-linha {
+    /* Garante um bom espaço abaixo da linha do título e acima dos cards */
+    margin-bottom: 25px; /* Aumentado para criar mais espaço */
+    padding-bottom: 5px; /* Espaço entre o texto e a linha */
+
+    /* A linha divisória cinza */
+    border-bottom: 1px solid #ccc; /* Linha cinza clara */
+    
+    /* Garante que a linha ocupe a largura total da coluna de conteúdo */
+    width: 100%;
+    display: block; 
+}
+
+/* Estilo para Links de Ação (Botões): Borda Superior Cinza e Espaçamento */
+.link-com-linha {
+    /* Adiciona espaço acima da linha e acima do botão */
+    margin-top: 20px; 
+    padding-top: 15px; /* Espaço entre a linha e o botão */
+    
+    /* A linha divisória cinza */
+    border-top: 1px solid #ccc; /* Linha cinza clara */
+    
+    /* Garante que o botão use a largura total para que a linha funcione */
+    width: 100%; 
+}
+
+.avatar-circular {
+    display: inline-flex; /* Usa flexbox para centralizar o ícone */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    
+    width: 70px; /* Tamanho do círculo */
+    height: 70px; /* Tamanho do círculo */
+    border-radius: 50%; /* Torna o elemento redondo */
+    background-color: #f0f0f0; /* Cor de fundo clara para o círculo */
+    border: 1px solid #ddd; /* Borda sutil */
+    
+    /* Espaço à direita do avatar para separar do nome */
+    margin-right: 10px; 
+    
+    /* Garante que o ícone interno seja visível */
+    font-size: 1.5em; /* Ajusta o tamanho do ícone dentro do círculo */
 }
