@@ -1,59 +1,81 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Dependente</title>
+    <title>PurpurinaShop - Início</title>
     <link rel="stylesheet" th:href="@{/estilos.css}">
     <link rel="icon" th:href="@{/favicon.ico}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <h1>Editar Dependente</h1>
+    <header class="header-purpurina">
+        <h1>Editar Dependente</h1>
+    </header>
 
-    <form class="meu-formulario" th:action="@{/editarDependente}" method="POST" th:object="${dependente}">
+        <form class="formulario-cliente" th:action="@{/editarDependente}" method="POST" th:object="${dependente}">
 
         <input type="hidden" th:field="*{id}" />
 
-        <div class="grupo-formulario">
-            <label for="nome">Nome do Dependente:</label>
-            <input type="text" id="nome" th:field="*{nome}" required>
-        </div>
+        <fieldset class="secao-formulario card-borda">
+            <legend class="titulo-purpurina">Dados do Dependente</legend>
 
-        <div class="grupo-formulario">
-            <label for="dataNascimento">Data de Nascimento:</label>
-            <input type="date" id="dataNascimento" th:field="*{dataNascimento}" required>
-        </div>
-
-        <div class="grupo-formulario">
-            <label>Gênero:</label>
-            <div class="opcoes-radio">
-                <label><input type="radio" value="Feminino" th:field="*{genero}"> Feminino</label>
-                <label><input type="radio" value="Masculino" th:field="*{genero}"> Masculino</label>
-                <label><input type="radio" value="Não Informado" th:field="*{genero}"> Não Informado</label>
-                <label><input type="radio" value="Indefinido" th:field="*{genero}"> Indefinido</label>
+            <div class="grid-formulario">
+                 <label for="nome">Nome do Dependente:</label>
+                 <input type="text" id="nome" th:field="*{nome}" required>
             </div>
-        </div>
+            
+            <div class="grid-formulario">
+                <label for="dataNascimento">Data de Nascimento:</label>
+                 <input type="date" id="dataNascimento" th:field="*{dataNascimento}" required>
+                </div>
+        </fieldset>
+        
+        <fieldset class="secao-formulario card-borda">
+            <legend class="titulo-purpurina">Gênero e Responsável</legend>
 
-        <div class="grupo-formulario">
-            <label for="cliente">Cliente (Responsável):</label>
-            <select id="cliente" th:field="*{cliente}" required>
-                <option value="">-- Selecione um Cliente --</option>
-                <option th:each="cli : ${clientes}" 
-                        th:value="${cli.id}" 
-                        th:text="${cli.nome + ' (CPF: ' + cli.cpf + ')'}"
-                        th:selected="${cli.id == dependente.cliente.id}"> 
-                        Nome do Cliente (CPF)
+            <div class="grupo-radio-tematico">
+                <label>Gênero:</label>
+                <div class="opcoes-radio-tematico">
+                    <label><input type="radio" value="Feminino" th:field="*{genero}"> Feminino</label>
+                    <label><input type="radio" value="Masculino" th:field="*{genero}"> Masculino</label>
+                    <label><input type="radio" value="Não Informado" th:field="*{genero}"> Não Informado</label>
+                     <label><input type="radio" value="Indefinido" th:field="*{genero}"> Indefinido</label>
+                    </div>
+            </div>
+
+            <div class="grid-formulario">
+                <label for="cliente">Cliente (Responsável):</label>
+                <select id="cliente" th:field="*{cliente}" required class="input-select-tematico">
+                    <option value="">-- Selecione um Cliente --</option>
+                     <option th:each="cli : ${clientes}" 
+                     th:value="${cli.id}" 
+                     th:text="${cli.nome + ' (CPF: ' + cli.cpf + ')'}"
+                     th:selected="${cli.id == dependente.cliente.id}"> 
+                     Nome do Cliente (CPF)
                     </option>
-            </select>
+                </select>
+            </div>
+        </fieldset>
+        
+        <div class="grupo-botoes-centralizado">
+            <button type="submit" class="btn-purpura btn-grande">Salvar Alterações</button>
+        </div>
+    </form>
+
+        <div class="navegacao-icones">
+            
+            <a th:href="@{/listarDependentes}" class="btn-icone-grande" title="Voltar para a Lista de Dependentes">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+
+            <a th:href="@{/}" class="btn-icone-grande" title="Tela Inicial">
+                <i class="fas fa-home"></i>
+            </a>
+            
         </div>
 
-        <div class="grupo-botoes">
-            <button type="submit" class="btn btn-adicionar">Salvar Alterações</button>
-        </div>
-    </form>
-
-    <br>
-    <a class = "link-acao"  th:href="@{/listarDependentes}">Voltar para a Lista de Dependentes</a>
 
 </body>
 </html>

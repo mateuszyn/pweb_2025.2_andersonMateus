@@ -503,3 +503,23 @@ table.tabela {
     white-space: nowrap;
     border-width: 0;
 }
+
+/* No seu estilos.css */
+
+/* Estilo para o Dropdown (Select) de Cliente */
+.input-select-tematico {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 1em;
+    height: 40px; /* Garante a mesma altura dos inputs */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-select-tematico:focus {
+    border-color: #6a0dad; /* Borda púrpura no foco */
+    box-shadow: 0 0 5px rgba(106, 13, 173, 0.3);
+    outline: none;
+}
