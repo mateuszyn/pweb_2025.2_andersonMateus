@@ -67,21 +67,98 @@ table.tabela {
     cursor: pointer;
 }
 
+/* ===============================
+   ESTILO DA BUSCA INTEGRADA
+   =============================== */
+
+/* 1. Contêiner Principal do Formulário */
+/* No seu arquivo estilos.css */
+
 .barra-busca-form {
-    display: flex;         
-    align-items: center;   
-    margin-top: 20px;      
-    margin-bottom: 20px;   
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* CHAVE: Centraliza o input e o link 'Limpar Busca' dentro do contêiner */
+    justify-content: center; /* Centraliza verticalmente (não essencial aqui) */
+
+    /* Define uma largura máxima para o contêiner da busca para que ele possa ser centralizado */
+    max-width: 710px; /* Garante que a largura seja ligeiramente maior que o input (350px) */
+    
+    /* CHAVE: Centraliza o bloco inteiro na página */
+    margin-left: auto;
+    margin-right: auto;
+    
+    margin-top: 30px; 
+    margin-bottom: 30px; 
+    padding: 15px;
+    border: 1px solid rgba(128, 0, 128, 0.2); 
+    border-radius: 8px;
+    background-color: #fcf6ff;
 }
 
+/* No seu arquivo estilos.css */
+
+/* 1. Contêiner do Input/Lupa (Importante!) */
+/* 1. Contêiner do Input/Lupa */
+.busca-input-wrapper {
+    display: block; /* Mude de flex para block, se o flex estiver causando problemas de largura */
+    position: relative; /* ESSENCIAL para que o absolute do ícone funcione corretamente */
+    width: 700px; 
+    margin-bottom: 10px; 
+}
+
+/* 2. Campo de Entrada (Ajuste o padding para dar espaço ao ícone) */
 .input-busca {
-    width: 350px;             
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;       
-    box-sizing: border-box; 
-    font-size: 1em;        
+    width: 100%; 
+    /* *** CHAVE: O padding da direita (45px) cria o espaço visual para a lupa. *** */
+    padding: 12px 45px 12px 15px; 
+    border: 2px solid #ccc;
+    border-radius: 8px; 
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura de 100% */
+    font-size: 1em; 
+    transition: border-color 0.3s;
+}
+
+/* 3. Ícone de Lupa (O novo botão Buscar) */
+/* No seu arquivo estilos.css */
+
+/* 3. Ícone de Lupa (O novo botão Buscar) */
+.icone-busca {
+    position: absolute;
+    /* CHAVE: Posicionamento fixo na direita, ajustando para dentro da borda. */
+    right: 2px; /* Afasta o ícone 8px da borda direita do wrapper */
+    top: 40%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para a centralização vertical */
+    
+    /* Z-Index: Garante que ele fique sobre qualquer texto ou outro elemento no mesmo nível */
+    z-index: 10; 
+    
+    /* Estilos Visuais e de Limpeza */
+    background: none;
+    border: none;
+    color: #6a0dad; 
+    padding: 0; /* Removendo qualquer padding que possa empurrar */
+    cursor: pointer;
+    font-size: 1.2em;
+    height: auto; 
+    width: 50px; /* Definindo uma largura pequena, mas suficiente */
+    
+    /* Se o cursor estiver mudando, remova estilos do botão */
+    line-height: 1; /* Garante que a altura do ícone não afete o layout */
+}
+
+.icone-busca:hover {
+    color: #800080;
+}
+
+/* 5. Estilo para o link "Limpar Busca" (Ajuste de posição) */
+.link-limpar-busca {
+    color: #800080; 
+    font-size: 0.9em;
+    text-decoration: none;
+    /* Move o link para baixo, sem precisar de margem lateral */
+    margin-left: 0; 
+    margin-top: 5px; /* Espaço entre o input e o link */
+    display: block; 
 }
 
 /* Estilo para separar campos dentro do card */
