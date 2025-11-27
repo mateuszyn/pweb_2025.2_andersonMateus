@@ -37,4 +37,7 @@ public class Cliente {
     @ToString.Exclude
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Dependente> dependentes;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Pedido> pedidos;
 }

@@ -1,32 +1,56 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Contato</title>
+    <title>PurpurinaShop - Início</title>
     <link rel="stylesheet" th:href="@{/estilos.css}">
+    <link rel="icon" th:href="@{/favicon.ico}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    
     <div class="container-conteudo"> 
-        <h1>Fale Conosco</h1>
-        
-        <h2>Atendimento Rápido (WhatsApp)</h2>
-        <p>Clique no botão abaixo para iniciar uma conversa com o nosso suporte técnico ou para fazer um pedido.</p>
+        <h1 class="header-purpurina">Fale Conosco</h1>
+        <p class="titulo-purpurina">Estamos disponíveis por chat e e-mail. Escolha sua melhor opção:</p>
 
-        <a th:href="@{'https://wa.me/84998643688?text=Olá, gostaria de saber mais sobre as jóias PurpurinaShop.'}" 
-           target="_blank" 
-           class="link-acao">
-           🟢 Iniciar Conversa no WhatsApp
-        </a>
-        
-        <br><br>
-        
-        <h2>Outras Informações de Contato</h2>
-        <p>Telefone: (84) 99864-3688</p>
-        💌Email: <a th:href="@{'https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSKjDcxQjKCnsZhFkRfwLXjfhdfDqrmXwMxvgWcNNfrmtjQjGwGhNvxDRdSbdPzTRvzjCGjq'}" target = "_blank" class = "link-acao"> a.mateussouza04@gmail.com</a>
+        <div class="grid">
+            
+            <article>
+                <header>
+                    <h2><i class="fab fa-whatsapp"></i> Chat Rápido</h2>
+                </header>
+                
+                <p>Inicie uma conversa imediata para dúvidas sobre pedidos ou suporte técnico.</p>
+                
+                <footer>
+                    <a th:href="@{'https://wa.me/5584998643688?text=Olá, gostaria de tirar uma dúvida.'}" 
+                       target="_blank" 
+                       class="link-acao">
+                       🟢 Iniciar Conversa
+                    </a>
+                </footer>
+            </article>
 
-        <p><a class="link-acao" th:href="@{/}">Voltar ao Início</a></p>
-    </div>
+            <article>
+                <header>
+                    <h2><i class="far fa-envelope"></i> Suporte por E-mail</h2>
+                </header>
+                
+                <p>Para assuntos administrativos, sugestões ou envio de documentos.</p>
+
+                <footer>
+                    <a href="mailto:a.mateussouza04@gmail.com?subject=Contato via PurpurinaShop"
+                       class="link-acao"
+                       style="background-color: #ffffff; border-color: #ffffff;">
+                       💌Enviar Email
+                    </a>
+                </footer>
+            </article>
+            </div>
+
+            <a th:href="@{/}" class="btn-icone-grande" title="Tela Inicial">
+                <i class="fas fa-home"></i>
+            </a>
 
 </body>
 </html>
