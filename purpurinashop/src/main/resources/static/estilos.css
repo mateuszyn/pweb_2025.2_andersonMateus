@@ -242,7 +242,8 @@ table.tabela {
     margin-top: 0.5rem; 
     
     margin-bottom: 0rem; /* Ajuste este valor para o quão "colado" você quer o título dos cards. 0px é totalmente colado. */
-}
+    margin-bottom: 0;
+}   
 
 /* Garante que o span esteja com display inline-block para margens e padding corretos (opcional) */
 .card-borda header span.titulo-purpurina {
