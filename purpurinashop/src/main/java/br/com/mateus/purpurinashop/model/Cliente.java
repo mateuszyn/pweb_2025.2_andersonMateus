@@ -34,10 +34,11 @@ public class Cliente {
     private String cidade;
     private String telefone;
 
-    @ToString.Exclude
+    @ToString.Exclude 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Dependente> dependentes;
 
+    @ToString.Exclude 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
 }
