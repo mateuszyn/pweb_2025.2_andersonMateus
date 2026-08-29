@@ -39,19 +39,19 @@ Para tech leads e avaliadores de código, este projeto demonstra domínio práti
 1. Certifique-se de ter o **Java (JDK 17 ou superior)** e o **Maven** instalados na sua máquina.
 2. Clone este repositório:
    ```bash
-   git clone [https://github.com/SEU-USUARIO/purpurina-shop.git](https://github.com/SEU-USUARIO/purpurina-shop.git)
-   ```bash 
+   git clone (https://github.com/SEU-USUARIO/purpurina-shop.git)
+   ```
 Acesse a pasta do projeto:
 
 ```bash
 cd purpurina-shop
-```bash
+```
 
 Execute a aplicação via Maven:
 
 ```bash
 mvn spring-boot:run
-```bash
+```
 
 Acesse no navegador:
 
@@ -59,5 +59,6 @@ Aplicação: http://localhost:8080/clientes
 
 Console do Banco H2: http://localhost:8080/h2-console (JDBC URL: jdbc:h2:mem:testdb)
 
-Desenvolvido por Anderson Mateus de Souza
-LinkedIn | Portfólio | E-mail
+Desenvolvido por Anderson Mateus de Souza para aprendizado na matéria de Programação Web. 
+
+(https://www.linkedin.com/in/anderson-mateus-064a95263/) | a.mateussouza04@gmail.com |
